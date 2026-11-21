@@ -2,7 +2,7 @@
 
 *Australia Building Calculators*
 
-Work out how much concrete you need for slabs, footings, paths, driveways, posts and steps. Choose the type of structure, enter the dimensions, and the Concrete Calculator gives you the volume in cubic metres, the approximate weight and a suggested order quantity. It works in metres and millimetres, the way ready-mix concrete is ordered in Australia.
+Work out how much concrete you need for slabs, footings, paths, driveways, posts, columns, walls and steps. Choose the structure type, enter its dimensions and quantities, and the Concrete Calculator gives you the volume in cubic metres, an estimated weight and a suggested ready-mix order. Optional bag estimates support 20 kg, 30 kg and 40 kg bags, using editable yields. All measurements use metres and millimetres.
 
 **[Calculator tool goes here]**
 
@@ -18,9 +18,9 @@ Start by choosing what you are pouring: a rectangular slab, a footing, a circula
 
 Measure the length and width of the pour in metres, using the inside dimensions of your formwork. Enter the thickness in millimetres, and the calculator converts it to metres. For slabs, make sure you measure the finished thickness, not the depth of the excavation.
 
-### Enter the Number of Slabs, Footings or Columns
+### Enter the Number of Identical Footings or Columns
 
-If you are pouring several identical items, such as 12 fence post holes or 3 matching slabs, enter the quantity. The calculator multiplies the volume of one by the number of items, which saves you doing it by hand.
+For square footings, circular footings or post holes, and circular columns, enter how many identical items you are pouring. The calculator multiplies the volume of one item by that quantity. Slabs, strip footings, walls and steps use the dimensions entered for each structure; add another structure when its dimensions differ.
 
 ### Calculate the Required Concrete Volume
 
@@ -28,7 +28,7 @@ Press calculate and the tool gives the total volume. For a rectangular slab, it 
 
 ### Convert the Result into Cubic Metres
 
-Concrete is ordered by the cubic metre (m³). The result appears in cubic metres, and often as a suggested order amount rounded up to the nearest 0.1 or 0.5m³. Use it as a starting point and talk to your supplier about the exact quantity.
+Concrete is ordered by the cubic metre (m³). The calculator shows the concrete volume including your waste allowance, then gives a separate suggested ready-mix order rounded up in 0.2m³ steps. This rounding is a planning guide; confirm the supplier’s minimum load and order increments before booking.
 
 ## How Much Concrete Do You Need for Your Project?
 
@@ -152,13 +152,13 @@ A common mix ratio for general work is 1 part cement, 2 parts sand and 3 parts c
 
 ### How Much Cement, Sand and Aggregate Are Needed?
 
-For 1m³ of concrete using a 1:2:3 mix, you need roughly 350kg of cement (about 9 bags of 40kg), 0.5m³ of sand and 0.75m³ of aggregate. These are approximate figures, as they vary with the mix design and moisture. If you are using premixed bags, a 20kg bag makes about 0.009m³, so 1m³ needs over 100 bags.
+For 1m³ of concrete using a 1:2:3 mix, you need roughly 350kg of cement (about 9 bags of 40kg), 0.5m³ of sand and 0.75m³ of aggregate. These are approximate figures, as they vary with the mix design and moisture. For the calculator’s starting bag yields, a 20kg bag is treated as about 10 litres (0.01m³), a 30kg bag as 15 litres (0.015m³), and a 40kg bag as 20 litres (0.02m³). That is about 100, 67 or 50 bags respectively for 1m³ before any allowance. Actual yields vary by product, so enter the yield printed on the bag.
 
 ## Ordering Concrete for Your Project
 
 ### How Many Cubic Metres of Concrete Should You Order?
 
-Order the calculated volume plus 5 to 10%. For an uneven base or a complex shape, add up to 15%. Concrete is usually ordered in 0.1 or 0.2m³ increments, and your supplier will advise on the best figure.
+Order the calculated volume plus 5 to 10%. For an uneven base or a complex shape, add up to 15%. The calculator rounds its suggested ready-mix quantity up in 0.2m³ steps. Your supplier may use different minimum loads or delivery increments, so confirm the final order directly.
 
 ### When Should You Order Ready-Mix Concrete?
 
@@ -176,7 +176,7 @@ An allowance protects against shortfalls caused by uneven ground, bowing forms a
 
 ### How Much Concrete Do I Need for a 10m² Slab?
 
-At 100mm thick, a 10m² slab needs 10 × 0.1 = 1m³ of concrete. Add 10% for waste, so order about 1.1m³. At 75mm it needs 0.75m³, and at 150mm it needs 1.5m³.
+At 100mm thick, a 10m² slab needs 10 × 0.1 = 1m³ of concrete before allowance. With the calculator’s starting 10% waste allowance, the volume is 1.1m³. Its suggested ready-mix order rounds up in 0.2m³ steps, so the suggested order is **1.2m³**. At 75mm the base volume is 0.75m³, and at 150mm it is 1.5m³, before allowance.
 
 ### How Many Cubic Metres of Concrete Are in a Standard Slab?
 

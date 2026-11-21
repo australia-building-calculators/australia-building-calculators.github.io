@@ -20,7 +20,7 @@ For each wall, multiply length by height. Add all the walls together to get the 
 
 ### Include Doors, Windows and Other Openings
 
-Doors and windows do not need paint, so subtract their area from the total. A standard door is about 2.0m × 0.8m, which is around 1.6m². A typical window might be 1.2m × 1.2m, or about 1.4m². Small openings under 1m² can usually be ignored, as the extra paint will cover cutting in and touch ups.
+Doors and windows do not need paint, so subtract their area from the total. The calculator starts with an average door area of 1.6m² and an average window area of 1.5m². Both values are editable, so enter the actual opening sizes when you know them. Its opening deduction uses the number of doors and windows multiplied by those average areas.
 
 ### Select the Number of Paint Coats
 
@@ -34,25 +34,25 @@ The calculator multiplies the painted area by the number of coats, then divides 
 
 ### How Much Paint Is Needed for One Room?
 
-For a room that is 3m × 3m with a 2.4m ceiling, the walls come to 12 × 2.4 = 28.8m². Subtracting about 3m² for a door and a window leaves around 25.8m². With two coats, that is about 51.6m² of paint coverage. At 14m² per litre, you need about 3.7 litres, so a 4 litre tin is the right size.
+For a room that is 3m × 3m with a 2.4m ceiling, the walls come to 12 × 2.4 = 28.8m². Subtracting about 3m² for a door and a window leaves around 25.8m². With two coats, that is about 51.6m² of paint coverage. At the calculator’s default interior coverage of 12m² per litre, you need 25.8 × 2 ÷ 12 = 4.3 litres. The tool rounds this up to 5 litres of tins, such as one 4L tin and one 1L tin. Use the coverage printed on your paint tin if it differs.
 
 ### Calculating Paint for Walls and Ceilings
 
-Ceilings are calculated separately from walls, because they usually use a different paint, often a flat or ceiling white. A 3m × 3m ceiling is 9m². For two coats, that is 18m², or roughly 1.3 litres at 14m² per litre. A 2 litre tin would be enough, with some left over.
+Ceilings are calculated separately from walls, because they usually use a different paint, often a flat or ceiling white. A 3m × 3m ceiling is 9m². For two coats, that is 18m², or 1.5 litres at the default 12m² per litre. The suggested tin combination rounds up to 2 litres.
 
 ### Estimating Paint for an Entire House
 
-For a whole house, the quickest approach is to calculate room by room and add the totals. As a rough guide, interior wall area is often around 2.5 times the floor area. A 100m² home might have about 225m² of wall area after subtracting openings. Two coats at 14m² per litre comes to around 32 litres for walls, plus around 14 litres for the ceilings.
+For a whole house, the quickest approach is to calculate room by room and add the totals. As a rough guide, interior wall area is often around 2.5 times the floor area. A 100m² home might have about 225m² of wall area after subtracting openings. Using the calculator’s default interior coverage of 12m² per litre, two coats over 225m² of walls need about 37.5 litres, while two coats over 100m² of ceilings need about 16.7 litres. These are broad estimates; measure each room and enter the product coverage for a better result.
 
 ### Calculating Paint for Exterior Walls and Surfaces
 
-Exterior walls need measuring in the same way, but they take more paint because of rougher surfaces such as render, weatherboard and brick. Measure the width and height of each wall, subtract windows and doors, and use the coverage rate recommended for exterior paint. Add 10 to 15% for textured surfaces.
+Exterior walls are measured in the same way as interior walls. The calculator changes its starting coverage to 10m² per litre when Exterior is selected, compared with 12m² per litre for Interior. Both coverage values can be edited to match the product tin. For rough or textured surfaces, select the +10% condition; for porous or unpainted surfaces, select +20%.
 
 ## How to Calculate Paint Coverage
 
 ### Paint Coverage per Litre Explained
 
-Coverage is how many square metres one litre of paint will cover with a single coat. For most interior and exterior acrylic paints, this is around 12 to 16m² per litre on a smooth, sealed surface. The exact figure is printed on the tin. Rough, porous or unpainted surfaces soak up paint and reduce the coverage.
+Coverage is how many square metres one litre of paint will cover with a single coat. The calculator starts at 12m²/L for interior paint and 10m²/L for exterior paint, but both values are editable. Always replace the starting value with the coverage printed on the actual product tin when it is available.
 
 ### Paint Calculation Formula: Surface Area ÷ Coverage
 
@@ -60,7 +60,7 @@ The formula is:
 
 **Litres = (Surface area (m²) × Number of coats) ÷ Coverage per litre (m²/L)**
 
-For example, 40m² of wall with two coats at 14m² per litre is (40 × 2) ÷ 14 = 5.7 litres.
+For example, 40m² of wall with two coats at the default interior coverage of 12m² per litre is (40 × 2) ÷ 12 = 6.7 litres. At the default exterior coverage of 10m² per litre, the same area needs 8 litres.
 
 ### How Multiple Paint Coats Affect the Total Quantity
 
@@ -78,15 +78,13 @@ Let’s say you are painting a living room with walls that are 5m and 4m, and a 
 
 - Multiply by two coats: 38.8 × 2 = 77.6m²
 
-- Divide by coverage of 14m² per litre: 77.6 ÷ 14 = **5.5 litres**
-
-You would buy a 10 litre tin, or a 4 litre and a 2 litre tin if you want to reduce waste.
+- Divide by the default interior coverage of 12m² per litre: 77.6 ÷ 12 = **6.5 litres**. The calculator rounds this up to 7 litres of tins, for example 4L + 2L + 1L. A 10L tin is another option if you prefer to keep some paint for touch-ups.
 
 ## What Factors Affect How Much Paint You Need?
 
 ### Wall Surface Texture and Porosity
 
-Smooth, sealed walls give the best coverage. Rough, textured or porous surfaces such as raw plaster, brick and render soak up more paint. For these, expect coverage to drop to 8 to 10m² per litre or lower.
+Smooth, sealed walls give the best coverage. Rough, textured or porous surfaces such as raw plaster, brick and render soak up more paint. In this calculator, you can select rough or textured (+10%) or porous or unpainted (+20%) to increase the estimated paint quantity. These are simple allowances, not a substitute for the product’s stated coverage.
 
 ### Existing Paint Colour and New Paint Colour
 
@@ -98,7 +96,9 @@ Premium paints often have better coverage and hiding power than budget options. 
 
 ### Primers, Undercoats and Additional Coats
 
-Primers seal the surface and help the topcoat stick and look even. Primer coverage is typically 10 to 14m² per litre, a little lower than topcoat. Include primer in your calculation if you are painting bare surfaces, stains, patched areas or making a major colour change.
+The calculator treats primer separately from topcoat. Select the primer option, then check the primer coverage rate and number of coats; the starting primer coverage is 10m² per litre for one coat. The surface-condition allowance is applied to the estimated paintable area, while the coat count multiplies topcoat litres. Use each product label’s coverage and preparation instructions where available.
+
+Primers seal the surface and help the topcoat stick and look even. The calculator starts primer coverage at 10m² per litre and lets you edit that rate and the number of primer coats. Include primer in your calculation if you are painting bare surfaces, stains, patched areas or making a major colour change.
 
 ### Painting New Surfaces vs Previously Painted Walls
 
@@ -112,7 +112,7 @@ Interior walls are the starting point for most calculations. Use a low sheen or 
 
 ### Paint Requirements for Ceilings
 
-Ceilings absorb a lot of paint because they are flat and often porous. A ceiling white typically has a slightly lower coverage rate of 12 to 14m² per litre. Calculate the ceiling area as length × width, and plan on two coats.
+Ceilings absorb a lot of paint because they are flat and often porous. The calculator applies the selected interior or exterior coverage to the ceiling area too; enter a different coverage rate when the ceiling product label specifies one. Calculate the ceiling area as length × width, and plan on two coats.
 
 ### Exterior Wall Paint Requirements
 
@@ -150,7 +150,7 @@ Use a primer on bare plaster, bare timber, patched areas, stained surfaces and w
 
 ### Understanding Paint Tin Sizes and Coverage
 
-Paint in Australia is commonly sold in 1, 2, 4, 10 and 15 litre tins, with some brands also offering 20 litres. At 14m² per litre, a 4 litre tin covers about 56m² for one coat and 28m² for two coats. Compare the cost per litre, as the larger tins are usually cheaper per litre.
+The calculator combines suggested tins from 1, 2, 4, 10 and 15 litre sizes. At 12m² per litre, a 4L tin covers about 48m² for one coat or 24m² for two coats, before any surface-condition allowance. Compare the cost per litre, as the larger tins are usually cheaper per litre.
 
 ### How to Reduce Paint Waste
 
@@ -168,11 +168,11 @@ Wipe the rim, press the lid on firmly and store the tin in a cool, dry place awa
 
 ### How Much Paint Do I Need for a 3m × 3m Room?
 
-With a 2.4m ceiling, the walls are about 28.8m² before subtracting a door and window. After deducting about 3m², you have around 26m². For two coats at 14m² per litre, you need about 3.7 litres of wall paint, so one 4 litre tin. The ceiling needs roughly 1.3 litres more.
+With a 2.4m ceiling, the walls are about 28.8m² before subtracting a door and window. After deducting about 3m², you have around 26m². For two coats at the default 12m² per litre, you need about 4.3 litres of wall paint, which the calculator rounds up to 5 litres of tins. The ceiling needs about 1.5 litres more at the same coverage rate.
 
 ### How Many Square Metres Does 1 Litre of Paint Cover?
 
-Most paints cover around 12 to 16m² per litre for a single coat on a smooth, sealed wall. Rough or porous surfaces reduce this to 8 to 10m² per litre. The tin will list the exact coverage for that product.
+The calculator starts at 12m² per litre for interior paint and 10m² per litre for exterior paint. These are editable planning defaults, not universal product rates. Check the coverage stated on the paint tin and enter that figure. The surface-condition selector adds 10% for rough or textured surfaces or 20% for porous or unpainted surfaces; it does not automatically replace the coverage rate with a different figure.
 
 ### How Many Coats of Paint Should I Apply?
 
@@ -184,8 +184,8 @@ Yes, for large openings. Subtract about 1.6m² for a standard door and the actua
 
 ### How Much Paint Do I Need for a 100m² House?
 
-For a 100m² floor area, wall area is often around 225m² after subtracting openings. Two coats at 14m² per litre comes to roughly 32 litres for walls and 14 litres for ceilings. This is an estimate, so measure your own home for a better result.
+For a 100m² floor area, wall area is often around 225m² after subtracting openings. Two coats at the default 12m² per litre comes to about 37.5 litres for the walls and 16.7 litres for the ceilings. This is an estimate, so measure your own home for a better result.
 
 ### Does Wall Texture Affect Paint Coverage?
 
-Yes. Rough and textured walls have more surface area and soak up more paint than smooth walls. Coverage can drop to 8 to 10m² per litre, so add 10 to 15% to your total for textured surfaces.
+Yes. Select Rough or textured to add 10% to the estimated paintable area, or Porous or unpainted to add 20%. These are the calculator’s starting allowances and can be changed by choosing a different surface condition. Also enter the coverage rate from the paint tin, because actual products and surfaces vary.

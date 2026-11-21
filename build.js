@@ -1,5 +1,5 @@
 /*
- * Aussie Build Calc site generator
+ * Australia Building Calculators site generator
  * Build:  node build.js
  * Settings live in site.config.json (siteUrl, contactEmail).
  * You can also override the address:  SITE_URL=https://your-domain.example node build.js
@@ -28,7 +28,7 @@ const CONTACT_EMAIL = String(config.contactEmail || '').trim();
 if (CONTACT_EMAIL && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)) {
   throw new Error('contactEmail does not look like a valid email address. Use an address you control, or leave it blank.');
 }
-const SITE_NAME = 'Aussie Build Calc';
+const SITE_NAME = 'Australia Building Calculators';
 const C = new Function(fs.readFileSync(path.join(OUT, 'js/data.js'), 'utf8') + ';return C;')();
 
 const slug = {
@@ -120,7 +120,7 @@ ${schema ? (Array.isArray(schema) ? schema : [schema]).map(jsonLd).join('\n') : 
 function header(root, current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner">
-<a class="brand" href="${root}" aria-label="Aussie Build Calc home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>Aussie Build Calc</strong><small>Plan it. Measure it. Build it.</small></span></a>
+<a class="brand" href="${root}" aria-label="Australia Building Calculators home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>${SITE_NAME}</strong><small>Plan it. Measure it. Build it.</small></span></a>
 ${nav(root, current)}
 </div></header>`;
 }
@@ -128,18 +128,18 @@ ${nav(root, current)}
 function footer(root) {
   const links = [['All calculators', root], ['How we calculate', `${root}how-we-calculate/`], ['About', `${root}about/`], ['Privacy', `${root}privacy/`]];
   if (CONTACT_EMAIL) links.push(['Contact', `${root}contact/`]);
-  return `<footer class="site-footer"><div class="footer-inner"><div><a class="footer-brand" href="${root}">Aussie Build Calc</a><p>Practical calculators for building, landscaping and home improvement projects across Australia.</p></div><div class="footer-links">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join('')}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${SITE_NAME}</span><span>Estimates are a guide only. Confirm quantities, product yields and specifications with your supplier or qualified tradesperson.</span></div></footer>`;
+  return `<footer class="site-footer"><div class="footer-inner"><div><a class="footer-brand" href="${root}">${SITE_NAME}</a><p>Practical calculators for building, landscaping and home improvement projects across Australia.</p></div><div class="footer-links">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join('')}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${SITE_NAME}</span><span>Estimates are a guide only. Confirm quantities, product yields and specifications with your supplier or qualified tradesperson.</span></div></footer>`;
 }
 
 // The calculator itself (form on the left, estimate on the right)
 function workspace(c) {
-  return `<p class="print-note">Estimate from Aussie Build Calc. Confirm quantities, product yields and specifications with your supplier before you order.</p><section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Updates automatically</span></div></div>
+  return `<p class="print-note">Estimate from Australia Building Calculators. Confirm quantities, product yields and specifications with your supplier before you order.</p><section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Updates automatically</span></div></div>
 <div class="calculator-panel result-panel"><div class="result-topline"><div class="panel-heading"><span class="panel-number">02</span><div><h2>Your estimate</h2><p>Based on the measurements entered.</p></div></div><span class="result-check" aria-hidden="true">✓</span></div><div id="out" class="calculator-results"></div><div id="srStatus" class="sr-only" role="status" aria-live="polite"></div><p class="result-note" id="nt"></p><div class="result-actions"><button type="button" class="button button-result" id="copyResults">Copy results</button><button type="button" class="button button-outline button-print" id="printResults">Print or save as PDF</button><span class="copy-feedback" id="copyFeedback" aria-live="polite"></span></div><div class="estimate-footnote">Estimates are indicative. Confirm product yields and specifications with your supplier.</div></div></section>
 <div class="micro-trust"><span>✓ No account required</span><span>✓ Free calculators</span><span>✓ Works on mobile</span></div>`;
 }
 
 function homePage() {
-  const title = 'Free Building & Landscaping Calculators Australia | Aussie Build Calc';
+  const title = 'Free Building & Landscaping Calculators Australia | Australia Building Calculators';
   const desc = 'Free Australian building, renovation and landscaping calculators. Estimate concrete, gravel, soil, mulch, paint, tiles, bricks, screed and more using metric units.';
   const schema = [
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, description: desc, inLanguage: 'en-AU', ...(abs('/') ? { url: abs('/') } : {}) },
@@ -181,7 +181,7 @@ ${header('', '')}<main id="main">
 <div class="category-filters" role="group" aria-label="Filter calculators by category">${filters}</div>
 <div class="tool-grid" id="toolGrid">${cards}</div><div class="no-results" id="noResults" hidden>No calculators found. Try another search or choose a different category.</div>
 </section>
-<section class="benefits-section" id="about"><div class="benefit-intro"><div class="section-kicker">Why use Aussie Build Calc?</div><h2>Less guesswork. Better planning.</h2><p>Whether it’s a weekend garden project or a bigger renovation, get a clear starting estimate without digging through complicated spreadsheets.</p></div><div class="benefit-list"><div class="benefit"><span aria-hidden="true">✓</span><div><b>Made for Australian metric measurements</b><p>Enter metres, millimetres, square metres and other familiar units.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Results that update instantly</b><p>Adjust your measurements and see the estimate change as you work.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Clear, practical breakdowns</b><p>See volume, area, weight, bags or quantities where the calculator supports them. <a href="how-we-calculate/">See how we calculate</a>.</p></div></div></div></section>
+<section class="benefits-section" id="about"><div class="benefit-intro"><div class="section-kicker">Why use Australia Building Calculators?</div><h2>Less guesswork. Better planning.</h2><p>Whether it’s a weekend garden project or a bigger renovation, get a clear starting estimate without digging through complicated spreadsheets.</p></div><div class="benefit-list"><div class="benefit"><span aria-hidden="true">✓</span><div><b>Made for Australian metric measurements</b><p>Enter metres, millimetres, square metres and other familiar units.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Results that update instantly</b><p>Adjust your measurements and see the estimate change as you work.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Clear, practical breakdowns</b><p>See volume, area, weight, bags or quantities where the calculator supports them. <a href="how-we-calculate/">See how we calculate</a>.</p></div></div></div></section>
 <section class="disclaimer-band"><div class="disclaimer-symbol" aria-hidden="true">i</div><div><strong>A helpful estimate, not a final order</strong><p>Material densities, product coverage and bag yields vary by supplier. Check product information and confirm your final quantities before purchasing.</p></div></section>
 </main>${footer('')}<script src="js/data.js"></script><script src="js/site.js" defer></script></body></html>`;
 }
@@ -280,43 +280,43 @@ ${more}
 // ---------- Trust pages ----------
 const assumptions = [
   ['Calculator', 'What it uses'],
-  ['Concrete', 'Volume depends on the structure type (slab, footing, post hole, column, wall or steps), plus your waste allowance. A 20 kg bag is assumed to make about 10 litres, a 30 kg bag 15 litres and a 40 kg bag 20 litres, and you can enter your own bag yield. Concrete density defaults to 2.4 tonnes per m³ and can be edited. Ready mix is rounded up to 0.2 m³ steps.'],
-  ['Gravel', 'Volume plus a compaction allowance (15% by default). Typical weight per m³: pebbles 1.5 t, crushed rock or blue metal 1.6 t, crusher dust 1.7 t, road base 1.9 t, sand 1.6 t. The density used is shown and can be edited. Bags are calculated from the weight and the bag size you choose.'],
-  ['Soil', 'Volume plus a settling allowance (10% by default). Typical weight per m³: topsoil 1.3 t, garden mix 1.1 t, lawn underlay 1.4 t, vegetable garden mix 1.0 t, compost 0.8 t, sandy soil 1.5 t, fill soil 1.6 t. Densities can be edited. The order quantity is rounded up to 0.5 m³ steps.'],
-  ['Mulch', 'Volume plus an extra allowance (10% by default). Bags can be 25, 30, 40 or 50 litres or a custom size. Load capacities are typical values for a ute tray and for small, medium and large trailers, and you can edit them.'],
-  ['Paint', 'Wall area is each room perimeter times wall height, minus doors and windows. Doors default to 1.6 m² and windows to 1.5 m². Coverage defaults to 12 m² per litre for interior paint and 10 m² per litre for exterior paint, as a general assumption only. Rough surfaces add 10% and porous or unpainted surfaces add 20%. Tin sizes used: 15, 10, 4, 2 and 1 litre.'],
-  ['Tile', 'Each tile is measured with its grout gap included. Allowance defaults to 10% for straight lay or brick bond, 15% for diagonal and 30% for herringbone, and can be edited. Adhesive coverage and grout use are optional estimates, and grout is assumed to weigh 1.6 kg per litre.'],
-  ['Brick', 'A standard Australian brick is 230 × 110 × 76 mm, a double height brick is 230 × 110 × 162 mm and a besser block is 390 × 190 mm. The mortar joint defaults to 10 mm, which gives about 48.45 standard bricks per m². Custom sizes and joint thickness can be entered. Double skin walls use twice the bricks.'],
-  ['Screed', 'Dry materials take up about 30% more space than the finished screed. Cement is counted in 20 kg or 25 kg bags at 1,440 kg per m³, and sand at 1.6 tonnes per m³. Liquid screed and bagged ready mixed screed are calculated by volume or by bag yield.'],
+  ['Concrete', 'Volume depends on the selected structure type (slab, square footing, circular footing or post hole, strip footing, column, wall or steps), plus the entered waste allowance (10% initially). Bag options are 20, 30 and 40 kg; default yields are 10, 15 and 20 litres respectively, and the yield can be edited. Concrete density starts at 2.4 tonnes per m³ and can be edited. The suggested ready-mix order is rounded up in 0.2 m³ steps.'],
+  ['Gravel', 'The calculator adds one combined compaction-and-waste allowance (15% initially; the selector also offers 0%, 5%, 10%, 15% or a custom percentage). Typical densities are pebbles or 20 mm gravel 1.5 t/m³, crushed rock or blue metal 1.6 t/m³, sand 1.6 t/m³, crusher dust 1.7 t/m³ and road base 1.9 t/m³. The chosen density can be edited. Optional bag counts use the calculated weight and a 20 kg, 25 kg or custom bag weight.'],
+  ['Soil', 'Volume plus a settling allowance (10% initially; selectable as 0%, 5%, 10%, 15% or custom). Starting densities are topsoil 1.3 t/m³, garden mix 1.1, lawn underlay 1.4, vegetable garden mix 1.0, compost 0.8, sandy soil 1.5 and fill soil 1.6; the density can be edited. Bag sizes are 25, 30, 40 or 50 litres, or a custom size. The suggested bulk order is rounded up to 0.5 m³ steps.'],
+  ['Mulch', 'Volume plus a settling allowance (10% initially; selectable as 0%, 5%, 10%, 15% or custom). Bags can be 25, 30, 40 or 50 litres, or a custom size. Optional load estimates start at 0.8 m³ for a ute tray, 1.0 m³ for a small trailer, 1.5 m³ for a medium trailer and 2.0 m³ for a large trailer; these are editable volume assumptions, not payload or towing ratings.'],
+  ['Paint', 'Wall area is each room perimeter times wall height, minus the entered door and window counts multiplied by their average areas (defaults: door 1.6 m², window 1.5 m²). Interior coverage starts at 12 m²/L and exterior coverage at 10 m²/L; both are editable. The surface-condition selector adds 10% for rough or textured surfaces and 20% for porous or unpainted surfaces. Topcoat count is editable. Optional primer uses its own editable coverage and coat count. Suggested tin sizes are 15, 10, 4, 2 and 1 litres.'],
+  ['Tile', 'The tile face dimensions are each increased by the entered grout gap before tile quantity is calculated. The pattern selector starts at 10% for straight lay and brick bond, 15% for diagonal and 30% for herringbone; the cuts-and-breakage allowance remains editable. One shared tile size and grout gap apply to all entered areas, and the opening deduction is subtracted from their combined area. Adhesive and grout are optional estimates; the grout estimate uses 1.6 kg per litre and is indicative only.'],
+  ['Brick', 'The presets are a standard 230 × 110 × 76 mm brick, a double-height 230 × 110 × 162 mm brick and a 390 × 190 mm besser block. The mortar joint starts at 10 mm and is editable; this gives about 48.45 standard brick faces per m² per skin. Each wall has an opening-area deduction in m². The single/double-skin selector multiplies the face quantity by one or two. The optional mortar result estimates joint volume only and does not include a waste allowance.'],
+  ['Screed', 'The calculator adds the selected waste and level-variation allowance (10% initially). For sand-and-cement screed it applies a 1.3 dry-material factor, splits that volume using the selected 3:1, 4:1 or 5:1 sand-to-cement ratio, estimates cement using 1,440 kg/m³ and sand using 1.6 t/m³, and counts 20 kg or 25 kg cement bags. Liquid screed is shown by volume. Bagged ready-mix uses the editable bag yield, which starts at 12 litres per bag.'],
   ['Square metre', 'Area is length × width, or the matching formula for a triangle or circle. One square metre is 10.764 square feet.'],
   ['Cubic metre', 'Volume is length × width × height, or the matching formula for a cylinder. One cubic metre is 1,000 litres.'],
-  ['Lineal metre', 'Lineal metres equal the area divided by the cover width, plus your extra allowance. Timber volume conversion divides the volume by the width and the thickness. Board and roll widths are common sizes and can be edited.']
+  ['Lineal metre', 'For area-to-length conversion, lineal metres equal area divided by the entered cover width, plus the optional 10% allowance (applies to this direction only). For length-to-area conversion, area equals length multiplied by width. For timber volume conversion, lineal metres equal volume divided by width and thickness. Material presets are starting widths; the width and its unit can be changed. Carpet layout, seams, board gaps and stock-length cutting plans are not automatically optimised.']
 ];
 
 const infoPages = [
   {
     slug: 'how-we-calculate', title: `How We Calculate | ${SITE_NAME}`,
-    desc: 'The formulas and assumptions behind every Aussie Build Calc calculator, including bag sizes, material weights and coverage rates.',
+    desc: 'The formulas and starting assumptions used by the Australia Building Calculators tools, including bag sizes, material weights and coverage rates.',
     h1: 'How we calculate', lead: 'Every calculator uses simple, visible maths. Here are the formulas and typical values behind each one.',
     body: [
-      ['The basic approach', 'Most calculators multiply length, width and depth to find a volume in cubic metres. Some then convert that volume into tonnes, bags or boxes using a typical material weight or yield.\nAll measurements are metric. Results are rounded up where you would need to buy whole items, such as bags, tiles or tins.\nWeights, bag yields, coverage rates and allowances are typical starting values. Where the calculator shows one in a box, you can change it to match your supplier specification.'],
+      ['The basic approach', 'Most material calculators multiply measured areas by a depth or thickness to find volume in cubic metres. Some then convert that volume into tonnes, bags, boxes or litres using a typical density, bag yield or product coverage. Where a tool has a shared depth, tile size or allowance, that setting applies to each area entered in that calculator.\nAll measurements are metric. Results are rounded up where you would need to buy whole items, such as bags, tiles or tins.\nWeights, bag yields, coverage rates and allowances are typical starting values. Where the calculator shows one in a box, you can change it to match your supplier specification.'],
       ['Assumptions used', assumptions],
       ['Why your numbers may differ', 'Bag yields, material weights, paint coverage and tile sizes change between brands and suppliers. Wet or compacted materials weigh more. Uneven ground and cutting waste also use extra material.\nAlways check the product label and confirm quantities with your supplier before you order. These calculators are a planning guide only and are not engineering or trade advice.']
     ]
   },
   {
     slug: 'about', title: `About ${SITE_NAME}`,
-    desc: 'Aussie Build Calc offers free, simple building, renovation and landscaping calculators in metric units for Australian projects.',
+    desc: 'Australia Building Calculators offers free, simple building, renovation and landscaping calculators in metric units for Australian projects.',
     h1: `About ${SITE_NAME}`, lead: 'Free, simple calculators for building, renovating and landscaping projects in Australia.',
     body: [
-      ['What this site is', 'Aussie Build Calc helps you work out how much material a project needs before you buy. It covers concrete, gravel, soil, mulch, paint, tiles, bricks, screed and common area and volume conversions.\nEverything uses metric units and terms that Australian suppliers use, such as road base, crusher dust and blue metal.'],
+      ['What this site is', 'Australia Building Calculators helps you estimate how much material a project may need before you buy. It covers concrete, gravel, soil, mulch, paint, tiles, bricks, screed and common area and volume conversions.\nEverything uses metric units and terms that Australian suppliers use, such as road base, crusher dust and blue metal.'],
       ['How the calculators work', 'You enter your measurements and the result updates straight away. Nothing needs to be installed and no account is needed. You can read the formulas and assumptions on the how we calculate page.'],
       ['A guide, not a final order', 'Results are estimates. Product yields, material weights and site conditions vary, so always confirm quantities with your supplier or a qualified tradesperson before you buy.']
     ]
   },
   {
     slug: 'privacy', title: `Privacy | ${SITE_NAME}`,
-    desc: 'How Aussie Build Calc handles your information. The calculators run in your browser and do not need an account.',
+    desc: 'How Australia Building Calculators handles your information. The calculators run in your browser and do not need an account.',
     h1: 'Privacy', lead: 'A short, plain summary of how this website handles information. Last updated 17 November 2026.',
     body: [
       ['Your calculator entries', 'The calculators run in your web browser. The measurements you type are used to show your result on your own screen. They are not sent to us and we do not store them.'],
@@ -330,7 +330,7 @@ const infoPages = [
 if (CONTACT_EMAIL) {
   infoPages.push({
     slug: 'contact', title: `Contact | ${SITE_NAME}`,
-    desc: 'Contact Aussie Build Calc with questions, corrections or suggestions for new calculators.',
+    desc: 'Contact Australia Building Calculators with questions, corrections or suggestions for new calculators.',
     h1: 'Contact', lead: 'Questions, corrections or ideas for a new calculator are welcome.',
     body: [['Get in touch', `Email us at ${CONTACT_EMAIL}. If you think a number or formula is wrong, tell us which calculator and what values you entered so we can check it.`]]
   });

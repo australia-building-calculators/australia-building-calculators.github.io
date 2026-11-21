@@ -232,5 +232,41 @@ pages.forEach(function (p) {
   check(p + ' page has no em or en dashes', !/[—–]/.test(html));
 });
 
+
+/* Brand and documented calculator assumptions */
+const buildSource = fs.readFileSync(path.join(__dirname, 'build.js'), 'utf8');
+const readmeSource = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf8');
+const concreteCopy = fs.readFileSync(path.join(__dirname, 'content/concrete.md'), 'utf8');
+const paintCopy = fs.readFileSync(path.join(__dirname, 'content/paint.md'), 'utf8');
+const tileCopy = fs.readFileSync(path.join(__dirname, 'content/tile.md'), 'utf8');
+const screedCopy = fs.readFileSync(path.join(__dirname, 'content/screed.md'), 'utf8');
+check('only the requested public brand appears in site source', !/Aussie Build Calc/i.test(buildSource + readmeSource));
+check('public site name is configured consistently', buildSource.includes("const SITE_NAME = 'Australia Building Calculators';"));
+check('concrete guide documents all three bag sizes', /20 ?kg/.test(concreteCopy) && /30 ?kg/.test(concreteCopy) && /40 ?kg/.test(concreteCopy));
+check('paint guide matches the calculator coverage defaults', paintCopy.includes('12m² per litre') && paintCopy.includes('10m² per litre') && !/14m² per litre/.test(paintCopy));
+check('tile guide documents the 30 percent herringbone preset', /herringbone preset starts at 30%/i.test(tileCopy));
+check('screed guide distinguishes bagged yield from dry-mix factor', screedCopy.includes('starting yield is 12 litres per bag') && screedCopy.includes('30% dry-material volume factor'));
+
+const tileExample = make('tile', function (v) {
+  v.areas = [{ name: 'Floor', shape: 'rect', a: 4, b: 3, dia: 0, base: 0, ht: 0 }];
+  v.tw = 600; v.tl = 600; v.g = 3; v.x = 10; v.bm = 'tiles'; v.bx = 4;
+});
+check('tile worked example matches the grout-gap formula and whole-box rounding', row('tile', tileExample, 'Tiles to buy') === '37' && row('tile', tileExample, 'Boxes') === '10');
+const concreteExample = make('concrete', function (v) {
+  v.structures = [{ name: 'Slab', type: 'slab', sl_l: 10, sl_w: 1, sl_t: 100 }];
+  v.x = 10;
+});
+check('concrete 10 m² slab example matches the 0.2 m³ ready-mix order increment', row('concrete', concreteExample, 'Suggested ready mix order') === '1.2 m³');
+const gravelExample = make('gravel', function (v) {
+  v.areas = [{ shape: 'rect', a: 5, b: 4, dia: 0, base: 0, ht: 0 }];
+  v.d = 100; v.x = 15; v.dens = 1.5;
+});
+check('gravel worked example matches the 15 percent allowance and selected density', row('gravel', gravelExample, 'Volume needed') === '2.3 m³' && row('gravel', gravelExample, 'Estimated weight') === '3.45 t');
+const soilExample = make('soil', function (v) {
+  v.areas = [{ shape: 'rect', a: 5, b: 2, dia: 0, base: 0, ht: 0 }];
+  v.d = 250; v.x = 10; v.dens = 1.3;
+});
+check('soil worked example matches topsoil density and 0.5 m³ order rounding', row('soil', soilExample, 'Estimated weight') === '3.58 t' && row('soil', soilExample, 'Suggested order quantity') === '3 m³');
+
 console.log('\n' + results.filter(Boolean).length + '/' + results.length + ' checks passed.');
 if (failed) process.exit(1);

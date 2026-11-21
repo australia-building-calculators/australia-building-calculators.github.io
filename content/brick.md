@@ -138,7 +138,7 @@ The joint size and the brick size together set the number of bricks per square m
 
 ### Doors, Windows and Other Wall Openings
 
-Subtract the area of large openings such as doors and windows. A standard door is about 2.0m × 0.8m (1.6m²), and a window might be 1.2m × 1.2m (1.44m²). Small openings can be ignored, because the cuts around them use extra bricks anyway.
+For each wall, add the area of its doors, windows and other openings in square metres and enter the combined deduction. For example, a 2.0m × 0.8m door is 1.6m² and a 1.2m × 1.2m window is 1.44m². The calculator accepts one combined opening-area figure per wall, not a separate list of window and door dimensions.
 
 ### Brick Bond and Construction Method
 

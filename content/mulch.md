@@ -2,7 +2,7 @@
 
 *Australia Building Calculators*
 
-Find out how much mulch you need for your garden beds, trees and landscaping. Enter the length, width and depth of the area, and the Mulch Calculator gives you the volume in cubic metres and the number of bags you may need. It uses metres and millimetres, so it fits Australian gardens and suppliers.
+Estimate mulch for garden beds, trees and landscaping. Add rectangular, circular or triangular areas, enter one shared depth and choose a bag size. The Mulch Calculator estimates cubic metres, litres, bag counts and, optionally, the number of loads at a selected vehicle volume.
 
 **[Calculator tool goes here]**
 
@@ -24,7 +24,7 @@ Press calculate and the tool multiplies length, width and depth to give the volu
 
 ### Estimate the Number of Mulch Bags Needed
 
-If you are buying bagged mulch, enter the bag size in litres, and the calculator tells you how many bags to buy. Remember that one cubic metre is 1,000 litres, so a 50 litre bag covers 0.05m³.
+If you are buying bagged mulch, choose 25L, 30L, 40L or 50L bags, or enter a custom size. One cubic metre is 1,000 litres, so a 50L bag holds 0.05m³. The number of bags is rounded up to a whole bag.
 
 ## How Much Mulch Do You Need?
 
@@ -42,7 +42,7 @@ For larger landscaped areas such as playground surfaces, pathways and open garde
 
 ### Calculating Mulch for Multiple Garden Beds
 
-Calculate each bed separately, as they may have different depths, and add the volumes together. Order the total in one delivery, which is usually cheaper than several small ones.
+Add each bed as a separate area when all beds use the same depth. The calculator applies one depth, allowance and bag size to every area in that calculation. If beds need different depths, run separate calculations and add the volumes. Ordering the combined amount in one delivery can be cheaper than several small orders.
 
 ### How to Calculate Mulch for Circular and Irregular Areas
 
@@ -147,9 +147,11 @@ A vegetable bed may need only 50mm of fine mulch, while a tree ring may need 100
 
 ## Buying Mulch: Bags vs Bulk Delivery
 
+The optional vehicle selector estimates loads by volume. Its starting capacities are 0.8m³ for a ute tray, 1.0m³ for a small trailer, 1.5m³ for a medium trailer and 2.0m³ for a large trailer. These are editable planning assumptions, not vehicle payload ratings. Mulch weight varies with type and moisture, so check the vehicle’s payload and the trailer’s towing limits before loading.
+
 ### How Many Bags of Mulch Make One Cubic Metre?
 
-One cubic metre is 1,000 litres. You need about 20 bags of 50L mulch, about 33 bags of 30L mulch, or about 40 bags of 25L mulch. Check the size on the bag, as brands differ.
+One cubic metre is 1,000 litres. You need about 40 bags of 25L mulch, 34 bags of 30L mulch, 25 bags of 40L mulch or 20 bags of 50L mulch. The calculator also accepts a custom size. Check the volume printed on the bag.
 
 ### How Much Does a Cubic Metre of Mulch Weigh?
 

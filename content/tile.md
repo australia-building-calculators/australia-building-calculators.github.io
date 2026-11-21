@@ -12,7 +12,7 @@ Your result includes the tiles needed to cover the area. Always add an allowance
 
 ### Enter the Dimensions of the Area You Want to Tile
 
-Measure the length and width of the floor or wall in metres. For walls, measure the width and the height you want to tile. If the area has an unusual shape, split it into rectangles and measure each one separately.
+Measure the length and width of each floor or wall area in metres. For walls, measure the width and the height you want to tile. You can add several rectangles, circles or triangles, such as separate floors and splashbacks. The calculator applies one tile width, tile length, grout gap and laying-pattern allowance to every area in that calculation, so group areas that use the same tile and layout. Enter the combined area of doors, windows or other openings in the separate openings field; it is deducted from the combined total, rather than measured automatically.
 
 ### Enter the Length and Width of Your Tiles
 
@@ -24,7 +24,7 @@ Grout joints are typically 2 to 5mm wide. Entering the grout width gives you a m
 
 ### Calculate the Total Number of Tiles Required
 
-Press calculate and the tool divides the total area by the area of one tile (including the grout gap). The result is the number of tiles needed to cover the surface, before any extra for wastage.
+Press calculate and the tool subtracts the opening area from the combined measured area. It divides the net area by the tile module (tile width plus grout gap, multiplied by tile length plus grout gap), applies the selected wastage allowance and rounds up to whole tiles. Individual area rows are estimates before the overall openings deduction.
 
 ### Estimate the Number of Tile Boxes to Purchase
 
@@ -42,7 +42,7 @@ For walls, multiply the width by the height of the tiled area. A kitchen splashb
 
 ### How Many Tiles Do You Need for a Bathroom?
 
-Bathrooms have more cuts, because of the shower, vanity and toilet. Calculate the floor area and the wall area separately, and subtract large openings such as doors and the shower screen. Add 10 to 15% extra for wastage. A small bathroom of 2.5m × 2m with floor to ceiling wall tiles can require 25 to 30m² of tile in total.
+Bathrooms have more cuts, because of the shower, vanity and toilet. Add the floor and each tiled wall as separate areas, then enter the combined area of any openings you want to deduct. The tool applies one wastage setting to the full calculation. The default presets are 10% for straight or brick-bond, 15% for diagonal and 30% for herringbone; these are starting allowances, not installation guarantees.
 
 ### Calculating Tiles for Kitchens and Outdoor Areas
 
@@ -64,7 +64,7 @@ Then add the wastage allowance, and round up to the next whole tile or box.
 
 ### Calculating the Area of a Single Tile
 
-Convert the tile dimensions from millimetres to metres, then multiply. For a 600 × 600mm tile, that is 0.6 × 0.6 = 0.36m². For a 300 × 600mm tile, it is 0.3 × 0.6 = 0.18m². To include grout, add the joint width to both dimensions. A 600 × 600mm tile with a 3mm joint is treated as 603 × 603mm.
+Convert the tile dimensions from millimetres to metres, then multiply. For a 600 × 600mm tile, the nominal tile area is 0.6 × 0.6 = 0.36m². For a 300 × 600mm tile, it is 0.3 × 0.6 = 0.18m². The calculator adds the grout gap to both dimensions to create the module used for the tile count. A 600 × 600mm tile with a 3mm joint is therefore treated as a 603 × 603mm module, or about 0.3636m². Nominal tile area is still used when converting a tile count into box coverage.
 
 ### Dividing Total Surface Area by Tile Area
 
@@ -72,17 +72,17 @@ Divide the surface area by the area of one tile. The answer is the number of til
 
 ### Worked Example of a Tile Quantity Calculation
 
-Say you are tiling a floor that is 4m long and 3m wide with 600 × 600mm tiles.
+Say you are tiling a floor that is 4m long and 3m wide with 600 × 600mm tiles, a 3mm grout gap, a straight layout and 4 tiles per box.
 
 - Calculate the floor area: 4 × 3 = **12m²**
 
-- Calculate the area of one tile: 0.6 × 0.6 = **0.36m²**
+- Add the grout gap to each tile dimension: 603 × 603mm = about **0.3636m² per module**
 
-- Divide: 12 ÷ 0.36 = 33.3, round up to **34 tiles**
+- Divide the area by the module: 12 ÷ 0.3636 = about **33.0 tiles before allowance**; the displayed whole-tile figure rounds up to 34
 
-- Add 10% for wastage: 34 × 1.1 = 37.4, round up to **38 tiles**
+- Apply the calculator’s 10% straight-layout allowance to the unrounded module count: 33.0 × 1.1 = 36.3, then round up to **37 tiles to buy**
 
-- If each box holds 4 tiles (1.44m²), you need 38 ÷ 4 = 9.5, so **10 boxes**
+- At 4 tiles per box, 37 ÷ 4 rounds up to **10 boxes**. Confirm the actual number of tiles and square-metre coverage printed on the box.
 
 ## How Many Extra Tiles Should You Allow for Wastage?
 
@@ -92,11 +92,11 @@ Tiles rarely fit a room exactly. You will cut them at walls, corners and around 
 
 ### Tile Wastage for Straight and Diagonal Patterns
 
-For a straight (grid) layout, allow about 10% extra. For a diagonal layout, allow about 15%, as more tiles need to be cut at the edges. Brick bond or offset patterns usually sit between the two.
+The calculator starts at 10% extra for straight or brick-bond layouts and 15% for diagonal layouts. These are editable starting allowances. The required amount also depends on room shape, tile size, installation layout and whether cut-offs can be reused.
 
 ### Extra Tiles for Complex Layouts and Cutting
 
-Herringbone, chevron and other complex patterns need 15 to 20% extra, and sometimes more. Large format tiles also create more waste, as one mistake costs a lot of tile. Rooms with many corners, niches or curves need extra too.
+The calculator’s herringbone preset starts at 30%. This is a conservative starting allowance for that pattern, not a guarantee; adjust it to suit tile size, room layout, installer advice and the amount of cutting. Large format tiles also create more waste, as one mistake costs a lot of tile. Rooms with many corners, niches or curves need extra too.
 
 ### Accounting for Future Repairs and Replacement Tiles
 
@@ -122,7 +122,7 @@ Rooms with alcoves, curves, pillars and cutouts need more tiles, because each cu
 
 ### Different Tile Sizes for the Same Surface Area
 
-The same area needs very different numbers of tiles depending on size. A 10m² floor needs about 28 tiles at 600 × 600mm, about 56 tiles at 300 × 600mm and about 111 tiles at 300 × 300mm. Remember to price per square metre as well as per tile.
+The same area needs very different numbers of tiles depending on size. Before grout and wastage, a 10m² floor needs about 28 tiles at 600 × 600mm, about 56 tiles at 300 × 600mm and about 111 tiles at 300 × 300mm. The calculator’s grout gap changes the effective module count, so use the result for the actual joint width you plan to install. Remember to compare prices per square metre as well as per tile.
 
 ## Understanding Tile Sizes, Coverage and Box Quantities
 
@@ -173,7 +173,7 @@ Tiles from different production runs can vary in shade and size. Check the batch
 
 ### How Many Tiles Do I Need for 10 Square Metres?
 
-It depends on the tile size. For 600 × 600mm tiles you need about 28 tiles, for 300 × 600mm about 56 tiles, and for 300 × 300mm about 111 tiles. Add 10% for wastage.
+Before grout and wastage, 10m² needs about 28 tiles at 600 × 600mm, 56 at 300 × 600mm or 111 at 300 × 300mm. The actual calculator result also depends on the grout gap and selected layout allowance.
 
 ### How Many 600 × 600mm Tiles Are Needed per Square Metre?
 
@@ -181,7 +181,7 @@ Each 600 × 600mm tile covers 0.36m², so you need about 2.78 tiles per square m
 
 ### How Much Extra Tile Should I Buy?
 
-Allow about 10% for straight layouts, 15% for diagonal layouts, and 15 to 20% for complex patterns such as herringbone. Add a little more for rooms with many cuts.
+The calculator starts at 10% for straight or brick-bond layouts, 15% for diagonal layouts and 30% for herringbone. These values are editable starting allowances; complex rooms may need more after the installer reviews the layout.
 
 ### How Many Tiles Are Usually in a Box?
 

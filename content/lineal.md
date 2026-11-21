@@ -16,7 +16,7 @@ Enter the measurement you already have. This could be an area in square metres, 
 
 ### Select the Material Width
 
-Enter the width of the material you plan to buy, in metres or millimetres. This could be the width of a carpet roll, a decking board, a fabric roll or a timber profile. The width is what turns an area into a length, so it must be accurate.
+Choose a common material preset or enter a custom cover width in millimetres, centimetres or metres. Use the effective cover width for boards, including any planned gap if that is how the product is installed. The tool uses the same width for every area in that calculation; it does not create a board layout or cutting plan.
 
 ### Convert Square Metres into Lineal Metres
 
@@ -133,7 +133,7 @@ Fence rails, palings, decking boards and edging are all sold by length. For fenc
 
 ### Calculating Carpet Length from Floor Area
 
-A bedroom measures 3.5m × 4.5m, and the carpet roll is 3.66m wide. The room is narrower than the roll, so you only need the length of the room: 4.5m. Add about 10 to 15cm for trimming, so order around 4.6m. The area calculation would give 15.75 ÷ 3.66 = 4.3m, but the room dimensions control what you actually buy.
+A bedroom measures 3.5m × 4.5m, and the carpet roll is 3.66m wide. The room is narrower than the roll, so the practical cut is about the room length: 4.5m, plus trimming allowance (for example, around 4.6m). A simple area ÷ roll-width calculation gives 15.75 ÷ 3.66 = 4.3m, but that theoretical result does not account for room orientation, seams, pattern matching or offcuts. Use a carpet installer’s cutting plan before ordering.
 
 ### Calculating Timber Length for a Building Project
 

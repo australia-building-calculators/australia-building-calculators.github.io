@@ -2,7 +2,7 @@
 
 *Australia Building Calculators*
 
-Find out exactly how much soil you need for your garden. Enter the length, width and depth of your area, and the Soil Calculator gives you the volume in cubic metres, the approximate weight in tonnes and the number of bags you may need. It works in metres and millimetres, so it suits Australian garden and landscaping projects.
+Estimate soil for garden beds, lawns and raised planters. Add rectangular, circular or triangular areas, enter a shared depth, choose a soil type and adjust its density if you know the supplier’s figure. The Soil Calculator estimates cubic metres, tonnes, litres, bag counts and a suggested bulk order.
 
 **[Calculator tool goes here]**
 
@@ -24,7 +24,7 @@ Press calculate and the tool multiplies length, width and depth to give the volu
 
 ### Calculate Soil Requirements for Multiple Garden Beds
 
-If you have more than one bed, calculate each bed separately and add the volumes together. This is more accurate than averaging, because beds often have different depths. For example, raised beds may need 300mm while a border bed only needs 150mm.
+Add each bed as a separate area when the beds share the same depth and soil type. The calculator applies one depth and one selected density to all areas in a single calculation. If beds need different depths or different soil types, run separate calculations and add the results.
 
 ## How Much Soil Do You Need for Your Garden?
 
@@ -84,9 +84,9 @@ Say you are filling a garden bed that is 5 metres long and 2 metres wide, with 2
 
 - Add 10% for settling: 2.5 × 1.1 = **2.75m³**
 
-- Estimate the weight: 2.75m³ × 1.4 tonnes per m³ = about **3.85 tonnes**
+- Estimate the weight using the default topsoil density of 1.3 tonnes per m³: 2.75m³ × 1.3 = about **3.58 tonnes**
 
-So you would order around 2.75m³, or 3 cubic metres if your supplier sells in whole or half cubic metres.
+The calculator’s suggested bulk order is rounded up to the next 0.5m³ step, so 2.75m³ is shown as **3.0m³**. Bag counts use the calculated 2.75m³ quantity instead of that rounded bulk-order figure.
 
 ## Choosing the Right Soil for Your Project
 
@@ -126,18 +126,18 @@ The right depth depends on what you are growing, the quality of the soil underne
 
 | Depth | Depth in metres | Volume per 10m² | Approx. weight per 10m² |
 | --- | --- | --- | --- |
-| 100mm | 0.1m | 1.0m³ | 1.4 tonnes |
-| 150mm | 0.15m | 1.5m³ | 2.1 tonnes |
-| 200mm | 0.2m | 2.0m³ | 2.8 tonnes |
-| 300mm | 0.3m | 3.0m³ | 4.2 tonnes |
+| 100mm | 0.1m | 1.0m³ | 1.3 tonnes |
+| 150mm | 0.15m | 1.5m³ | 1.95 tonnes |
+| 200mm | 0.2m | 2.0m³ | 2.6 tonnes |
+| 300mm | 0.3m | 3.0m³ | 3.9 tonnes |
 
-Weights are estimates based on about 1.4 tonnes per cubic metre. Actual weights vary by product and moisture.
+Weights in this table use the calculator’s starting topsoil density of 1.3 tonnes per m³. The selected soil type can use a different density, and moisture changes the actual delivered weight.
 
 ## Understanding Soil Volume, Weight and Delivery
 
 ### How Much Does a Cubic Metre of Soil Weigh?
 
-A cubic metre of soil usually weighs between 1.2 and 1.6 tonnes. Dry, sandy mixes are lighter. Wet or clay heavy soils can be heavier. For quick planning, 1.4 tonnes per cubic metre is a reasonable figure.
+A cubic metre of soil usually weighs between 1.2 and 1.6 tonnes. Dry, sandy mixes are lighter. Wet or clay heavy soils can be heavier. For a quick topsoil estimate, the calculator starts at 1.3 tonnes per cubic metre. Its other soil presets use different starting densities, and the density field is editable.
 
 ### Why Soil Weight Changes with Moisture Content
 
@@ -145,7 +145,7 @@ Soil absorbs water like a sponge. After heavy rain, the same cubic metre can wei
 
 ### How Many Soil Bags Make Up One Cubic Metre?
 
-The number depends on the bag size. One cubic metre is 1,000 litres, so:
+The calculator lets you choose 25L, 30L, 40L or 50L bags, or enter a custom bag size. One cubic metre is 1,000 litres, so:
 
 - 25L bags: about 40 bags
 
@@ -177,17 +177,17 @@ If you are topping up a bed that already has soil in it, only calculate the extr
 
 ### Ordering Too Much or Too Little Soil
 
-Order about 10% extra to allow for settling and spillage. Going much higher than that wastes money, while ordering the exact figure often leaves you slightly short once the soil settles.
+The calculator starts with a 10% settling allowance. You can select 0%, 5%, 10%, 15% or a custom percentage. Its suggested bulk order is then rounded up to 0.5m³ steps; bag counts are based on the calculated litre volume, not that rounded bulk-order figure.
 
 ## Frequently Asked Questions About the Soil Calculator
 
 ### How Much Soil Do I Need for 1 Square Metre?
 
-It depends on the depth. At 100mm deep, 1m² needs 0.1m³, which is about 140kg of soil. At 300mm deep, it needs 0.3m³, or about 420kg. Multiply by your total area to find the full amount.
+It depends on the depth. At 100mm deep, 1m² needs 0.1m³. Using the calculator’s default topsoil density of 1.3t/m³, that is about 130kg. At 300mm deep, it needs 0.3m³, or about 390kg. Other soil types and moisture levels change the weight.
 
 ### How Many Cubic Metres of Soil Do I Need?
 
-Multiply the length by the width by the depth, with all measurements in metres. For example, a bed that is 3m × 2m at 200mm deep needs 3 × 2 × 0.2 = 1.2m³. Add 10% for settling to give about 1.3m³.
+Multiply the length by the width by the depth, with all measurements in metres. For example, a bed that is 3m × 2m at 200mm deep needs 3 × 2 × 0.2 = 1.2m³. Add the calculator’s starting 10% settling allowance to get 1.32m³. Its suggested bulk order rounds that up to **1.5m³**; bag counts are based on 1.32m³.
 
 ### How Deep Should Soil Be for a Garden Bed?
 
@@ -199,7 +199,7 @@ One cubic metre of soil typically weighs 1.2 to 1.6 tonnes. Moisture content and
 
 ### How Many Bags of Soil Are in a Cubic Metre?
 
-It depends on the bag size. There are about 40 bags of 25L soil, 33 bags of 30L soil, or 20 bags of 50L soil in a cubic metre.
+It depends on the bag size. There are about 40 bags of 25L soil, 34 bags of 30L soil, 25 bags of 40L soil or 20 bags of 50L soil in a cubic metre. The calculator also accepts a custom bag volume.
 
 ### Can I Calculate Soil for Multiple Garden Beds?
 

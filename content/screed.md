@@ -2,7 +2,7 @@
 
 *Australia Building Calculators*
 
-Work out how much screed you need for your floor. Enter the length and width of the room and the screed thickness, and the Screed Calculator gives you the volume in cubic metres, the approximate weight and the number of bags you may need. It uses metres and millimetres, so it suits Australian renovation and building projects.
+Estimate screed volume for one or more floors. Enter each room’s length, width and thickness, choose sand-and-cement, liquid or bagged ready-mix screed, and add an allowance for waste and level variations. The tool estimates cement and sand for a sand-and-cement mix, volume for liquid screed, or bag counts from the entered bag yield for ready-mixed bags.
 
 **[Calculator tool goes here]**
 
@@ -24,7 +24,7 @@ Press calculate and the tool multiplies length, width and thickness to give the 
 
 ### Estimate the Total Screed Material Required
 
-The tool converts the volume into an approximate weight, using a typical density of about 2 tonnes per cubic metre. You can also use this to estimate how many bags of dry screed mix you will need.
+The result shows finished screed volume including the entered allowance. Choose the screed type to see the corresponding estimate: cement bags and sand tonnes for a sand-and-cement mix, volume for liquid screed, or ready-mix bag count based on the entered litres per bag.
 
 ### Calculate Screed Requirements for Multiple Rooms
 
@@ -34,7 +34,7 @@ If you are screeding more than one room, calculate each one separately and add t
 
 ### Calculating Screed for Residential Floors
 
-A living room that is 5m × 4m with 50mm of screed needs 5 × 4 × 0.05 = 1m³. Add 10% for variations in the subfloor, which brings the total to 1.1m³, or about 2.2 tonnes.
+A living room that is 5m × 4m with 50mm of screed needs 5 × 4 × 0.05 = 1m³ before allowance. With the calculator’s starting 10% allowance, the estimated screed volume is 1.1m³. The material quantities then depend on whether you select sand-and-cement, liquid or bagged screed.
 
 ### Screed Requirements for Bathrooms and Wet Areas
 
@@ -84,7 +84,7 @@ Say you are screeding a floor that is 4m long and 3m wide, at a thickness of 50m
 
 - Estimate the weight: 0.66 × 2 = about **1.3 tonnes**
 
-With 25kg bags, that is around 53 bags.
+For the calculator’s sand-and-cement option, the starting mix ratio is 4 parts sand to 1 part cement and the cement bag selector starts at 20kg. For a 4m × 3m × 50mm floor with a 10% allowance, the tool estimates about 13 bags of 20kg cement and about 1.1 tonnes of sand. If you select bagged ready-mix instead, the starting yield is 12 litres per bag, giving 55 bags for 0.66m³; check and edit the actual bag yield.
 
 ## What Is the Recommended Screed Thickness?
 
@@ -121,7 +121,7 @@ Each screed system is designed for a specific thickness range. Using too little 
 
 ### Traditional Sand and Cement Screed
 
-This is the most common type, mixed from sand and cement, and sometimes with an additive. A typical ratio is between 1 part cement to 3 and 1 part cement to 4.5 parts sand. It is cost effective and durable, but it takes longer to dry and needs skill to lay and level.
+This is the most common type, mixed from sand and cement, and sometimes with an additive. The calculator offers sand-to-cement ratios of 3:1, 4:1 and 5:1, with 4:1 selected initially. Choose the mix specified for your screed product or project; these ratios are not structural design advice. It is cost effective and durable, but it takes longer to dry and needs skill to lay and level.
 
 ### Liquid and Flowing Screed
 
@@ -185,6 +185,8 @@ Screed needs to cure slowly. Protect it from drafts, direct sun and rain, and ke
 
 ## Ordering and Mixing Screed
 
+For the sand-and-cement option, the calculator applies a 30% dry-material volume factor to the estimated screed volume, then splits that dry volume using the selected sand-to-cement ratio. Its starting assumptions are a cement bulk density of 1,440kg/m³ and sand density of 1.6 tonnes/m³. These are estimating assumptions; actual mix design, moisture and product yield can differ. The 30% factor is not used to calculate liquid screed or bagged ready-mix bag counts.
+
 ### Bagged Screed vs Ready-Mixed Screed
 
 Bagged screed suits small rooms and repairs. It is easy to handle, but mixing and laying takes time. Ready mixed or pumped screed is better for large areas, because it is consistent and fast. Compare the price and the minimum order.
@@ -195,7 +197,7 @@ It depends on the thickness. At 40mm, 1m² needs 0.04m³, or about 80kg. At 50mm
 
 ### Understanding Screed Coverage and Material Yield
 
-Bag labels list the yield, which is the area covered at a given thickness. As a guide, a 25kg bag at about 2 tonnes per cubic metre makes around 0.0125m³, which covers about 0.25m² at 50mm thick. Check the label for the exact figure.
+For bagged ready-mix, enter the litres of finished screed yield stated on the bag. The calculator starts at 12 litres per bag and divides the estimated volume by that yield, rounding up to whole bags. Product yields vary, so replace the default with the manufacturer’s figure.
 
 ### Why You Should Allow for Variations in Floor Depth
 

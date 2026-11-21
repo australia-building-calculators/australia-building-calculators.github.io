@@ -2,7 +2,7 @@
 
 *Australia Building Calculators*
 
-Work out exactly how much gravel you need in seconds. Enter the length, width and depth of your area, and the Gravel Calculator gives you the volume in cubic metres, the approximate weight in tonnes and the number of bags you may need. It is designed for Australian projects, so all measurements are in metres, millimetres and cubic metres.
+Estimate how much gravel, road base, crusher dust, blue metal or sand your project may need. Add rectangular, circular or triangular areas, enter one shared depth and choose a material density. The Gravel Calculator estimates volume, tonnes and optional 20 kg or 25 kg bag counts. Measurements use metres and millimetres.
 
 **[Calculator tool goes here]**
 
@@ -10,9 +10,9 @@ Your result shows the total gravel volume for the area you entered. Use it as a 
 
 ## How to Use the Gravel Calculator
 
-### Enter the Length and Width of the Area
+### Enter the Area You Want to Cover
 
-Start by measuring the area you want to cover. Use a tape measure or a measuring wheel and record the length and width in metres. For a driveway, measure the full length from the road edge to the garage or carport, then measure the width at its narrowest and widest points. If the width varies, use the average.
+Add each area as a rectangle, circle or triangle. Use metres for lengths, widths, bases, heights and diameters. The calculator applies one shared depth and one selected material density to all areas in that calculation. For an irregular space, split it into simple non-overlapping shapes.
 
 ### Choose the Required Gravel Depth
 
@@ -24,7 +24,7 @@ Press calculate and the tool multiplies length, width and depth to give the volu
 
 ### Estimate How Much Gravel to Order
 
-The calculated figure is the amount needed to fill the space exactly. In practice, gravel settles and compacts, and some is lost during spreading. Most people add 5 to 10% on top of the result, and up to 15% for driveways or uneven ground. Round up to the nearest practical order size, such as the next half cubic metre or the next full tonne.
+The calculated figure is the amount needed to fill the space exactly. In practice, gravel settles and compacts, and some is lost during spreading. The calculator combines compaction and waste in one allowance field. It starts at 15%, and you can select no allowance, 5%, 10%, 15% or enter a custom percentage. Choose the allowance that suits the material and site; do not add the same compaction or waste percentage again outside the calculator unless you have a separate reason. Round up to the nearest practical order size, such as the next half cubic metre or the next full tonne.
 
 ## How Much Gravel Do You Need for Your Project?
 
@@ -56,7 +56,7 @@ For example, a circular feature area with a radius of 1.5 metres has an area of 
 
 ## How Is Gravel Quantity Calculated?
 
-### Gravel Volume Formula: Length × Width × Depth
+### Gravel Volume Formula: Area × Depth
 
 The formula is simple:
 
@@ -80,17 +80,17 @@ Gravel is sold by volume (cubic metres) or by weight (tonnes), so it helps to kn
 
 ### How to Calculate Gravel Requirements Using a Worked Example
 
-Let’s say you are laying gravel over an area that is 5 metres long and 4 metres wide, at a depth of 100mm.
+Let’s say you are laying pebbles or 20mm gravel over an area that is 5 metres long and 4 metres wide, at a depth of 100mm. Select that material preset (1.5 tonnes per m³) and keep the calculator’s starting 15% combined compaction-and-waste allowance.
 
 - Convert the depth: 100mm = 0.1m
 
-- Calculate the volume: 5 × 4 × 0.1 = **2m³**
+- Calculate the volume before allowance: 5 × 4 × 0.1 = **2m³**
 
-- Estimate the weight: 2m³ × 1.5 tonnes per m³ = **3 tonnes**
+- Add the 15% allowance: 2 × 1.15 = **2.3m³**
 
-- Add 10% for compaction and wastage: 2 × 1.1 = **2.2m³**, or about **3.3 tonnes**
+- Estimate the weight: 2.3m³ × 1.5 tonnes per m³ = **3.45 tonnes**
 
-So you would order around 2.2m³ of gravel, or 3.3 tonnes if your supplier sells by weight.
+So the calculator estimates about 2.3m³ or 3.45 tonnes. If you choose another gravel type, use its selected density; the weight will change.
 
 ## What Depth of Gravel Should You Use?
 
@@ -136,7 +136,7 @@ A sensible allowance is 5 to 10% for flat, well prepared areas and 10 to 15% for
 
 ### How Many Bags of Gravel Do You Need?
 
-Bags are convenient for small jobs. To work out how many you need, divide the total weight by the weight of each bag. For example, 1m³ of gravel at about 1.5 tonnes is roughly 1,500kg. Using 20kg bags, that is around 75 bags. Using 25kg bags, it is around 60 bags. Check the bag size and weight on the product label, as these vary between brands.
+Bags are convenient for small jobs. The calculator first estimates the total material weight using the selected density, then divides that weight by the chosen bag weight. It offers 20 kg, 25 kg or a custom bag size. To do a manual check, divide the total weight in kilograms by the bag weight. For example, 1m³ of gravel at about 1.5 tonnes is roughly 1,500kg. Using 20kg bags, that is around 75 bags. Using 25kg bags, it is around 60 bags. Check the bag size and weight on the product label, as these vary between brands.
 
 ### How Much Does a Cubic Metre of Gravel Weigh?
 
@@ -166,7 +166,7 @@ It depends on the depth. At 50mm deep, 1m² needs 0.05m³, which is about 75kg o
 
 ### How Many Cubic Metres of Gravel Do I Need?
 
-Multiply the length by the width by the depth, with all three in metres. For example, an area of 6m × 3m at 75mm deep needs 6 × 3 × 0.075 = 1.35m³. Add 10% for compaction and wastage, which brings the total to about 1.5m³.
+Multiply the length by the width by the depth, with all three in metres. For example, an area of 6m × 3m at 75mm deep needs 6 × 3 × 0.075 = 1.35m³. With the calculator’s default 15% combined compaction-and-waste allowance, 1.35m³ becomes 1.5525m³, displayed as about 1.55m³. You can choose a different allowance in the tool.
 
 ### How Deep Should Gravel Be for a Driveway?
 
@@ -182,4 +182,4 @@ Break the area into simple shapes such as rectangles, triangles and circles. Cal
 
 ### Should I Order Extra Gravel for My Project?
 
-Yes. Gravel compacts and spreads unevenly, so ordering 5 to 10% extra is sensible for most projects, and up to 15% for driveways or uneven ground. Having a little left over is much better than running short and paying for a second delivery.
+The calculator starts with a combined 15% compaction-and-waste allowance. You can change it to 0%, 5%, 10%, 15% or a custom percentage to suit the material and site conditions.

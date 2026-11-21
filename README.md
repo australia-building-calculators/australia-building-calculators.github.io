@@ -1,4 +1,4 @@
-# Aussie Build Calc
+# Australia Building Calculators
 
 A static Australian building, renovation and landscaping calculator website. It uses HTML, CSS and vanilla JavaScript; no database, server-side runtime or framework is needed.
 
