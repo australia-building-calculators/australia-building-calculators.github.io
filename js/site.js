@@ -67,8 +67,8 @@
     var quickFormat = new Intl.NumberFormat('en-AU', { maximumFractionDigits: 3 });
 
     function clearQuickResults(message) {
-      areaOutput.textContent = '—';
-      volumeOutput.textContent = '—';
+      areaOutput.textContent = '0 m²';
+      volumeOutput.textContent = '0 m³';
       quickMessage.textContent = message;
     }
 

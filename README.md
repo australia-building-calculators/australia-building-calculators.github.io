@@ -1,6 +1,6 @@
-# Australia Building Calculators
+# Aussie Build Calc
 
-A static Australian building, construction, renovation and landscaping calculator website. It uses HTML, CSS and vanilla JavaScript; no database, server-side runtime or framework is needed.
+A static Australian building, renovation and landscaping calculator website. It uses HTML, CSS and vanilla JavaScript; no database, server-side runtime or framework is needed.
 
 ## What is included
 
@@ -15,7 +15,7 @@ A static Australian building, construction, renovation and landscaping calculato
 1. Open `site.config.json`.
 2. Set `siteUrl` to the exact public website address, including `https://` and any repository subpath, with no trailing slash. Examples:
    - `https://your-project.pages.dev`
-   - `https://australia-building-calculators.github.io`
+   - `https://username.github.io/repository-name`
 3. Optionally set `contactEmail` to an address you control. This generates a Contact page and adds it to the footer. Leave it blank if you do not want to publish an email address.
 4. Run `node build.js` from this folder.
 
@@ -33,7 +33,7 @@ If the repository contains this folder as `site/`, set:
 
 If you upload the contents of this folder as the repository root, use the same build command and output directory, with the root directory left at the project root.
 
-For this GitHub Pages deployment, the GitHub account or organisation must be named `australia-building-calculators` and the repository must be named `australia-building-calculators.github.io`. The website URL is `https://australia-building-calculators.github.io`. Upload the contents of this folder to the repository root (not the enclosing `site` folder), then in **Settings → Pages** choose **Deploy from a branch**, select `main` and `/ (root)`, and save. The sitemap and canonical URLs are already configured for this address.
+For a GitHub Pages deployment, run `node build.js` locally after configuring `siteUrl`, then publish the generated contents of this folder.
 
 ## AdSense and analytics checklist
 
@@ -74,3 +74,12 @@ Edit calculator text, fields or formulas in `js/data.js`. Edit page layouts and 
 ## Calculation note
 
 Material densities, bag yields, paint coverage and product dimensions are estimates, not supplier guarantees. Confirm values against the actual product label or supplier specification before placing an order. The calculators are planning aids, not engineering, structural or trade advice.
+
+## Page content (content folder)
+The text for the gravel, soil, paint, tile, concrete, mulch, brick, lineal metre and screed pages lives in `content/*.md`, exactly as written in the final content document. Edit those files, then run `node build.js`. The line `**[Calculator tool goes here]**` marks where the calculator appears, and the section called "Frequently Asked Questions" becomes the FAQ list and the FAQ schema. The square metre and cubic metre pages still use the text in `js/data.js`.
+
+## Calculator features
+Areas, rooms, walls and structures can be added with the "Add another" buttons. Gravel, soil, mulch and tile accept rectangles, circles and triangles. Concrete handles slabs, footings, post holes, columns, walls and steps. Paint works by room, with primer, trim and surface condition. Brick has custom sizes, adjustable joints and multiple walls. Lineal metre converts both ways and from timber volume. Screed handles sand and cement, liquid and bagged mixes. Material weights, bag yields and coverage rates are typical starting values that the visitor can edit. Run `node test-calculators.js` after changing a formula.
+
+## Extras
+Gravel, soil and mulch have an allowance dropdown (none, 5%, 10%, 15% or custom). Every group item (area, room, wall, structure) can be named, and the results then list each one separately. The lineal metre calculator accepts widths in mm, cm or m and several areas. Tile, brick and screed can estimate cost, and every calculator page has a "Print or save as PDF" button with a print layout.

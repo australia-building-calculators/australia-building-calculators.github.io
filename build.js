@@ -1,5 +1,5 @@
 /*
- * Australia Building Calculators site generator
+ * Aussie Build Calc site generator
  * Build:  node build.js
  * Settings live in site.config.json (siteUrl, contactEmail).
  * You can also override the address:  SITE_URL=https://your-domain.example node build.js
@@ -28,7 +28,7 @@ const CONTACT_EMAIL = String(config.contactEmail || '').trim();
 if (CONTACT_EMAIL && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)) {
   throw new Error('contactEmail does not look like a valid email address. Use an address you control, or leave it blank.');
 }
-const SITE_NAME = 'Australia Building Calculators';
+const SITE_NAME = 'Aussie Build Calc';
 const C = new Function(fs.readFileSync(path.join(OUT, 'js/data.js'), 'utf8') + ';return C;')();
 
 const slug = {
@@ -120,7 +120,7 @@ ${schema ? (Array.isArray(schema) ? schema : [schema]).map(jsonLd).join('\n') : 
 function header(root, current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner">
-<a class="brand" href="${root}" aria-label="Australia Building Calculators home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>Australia Building Calculators</strong><small>Free Building & Construction Calculators for Australia</small></span></a>
+<a class="brand" href="${root}" aria-label="Aussie Build Calc home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>Aussie Build Calc</strong><small>Plan it. Measure it. Build it.</small></span></a>
 ${nav(root, current)}
 </div></header>`;
 }
@@ -128,18 +128,18 @@ ${nav(root, current)}
 function footer(root) {
   const links = [['All calculators', root], ['How we calculate', `${root}how-we-calculate/`], ['About', `${root}about/`], ['Privacy', `${root}privacy/`]];
   if (CONTACT_EMAIL) links.push(['Contact', `${root}contact/`]);
-  return `<footer class="site-footer"><div class="footer-inner"><div><a class="footer-brand" href="${root}">Australia Building Calculators</a><p>Practical calculators for building, landscaping and home improvement projects across Australia.</p></div><div class="footer-links">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join('')}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${SITE_NAME}</span><span>Estimates are a guide only. Confirm quantities, product yields and specifications with your supplier or qualified tradesperson.</span></div></footer>`;
+  return `<footer class="site-footer"><div class="footer-inner"><div><a class="footer-brand" href="${root}">Aussie Build Calc</a><p>Practical calculators for building, landscaping and home improvement projects across Australia.</p></div><div class="footer-links">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join('')}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${SITE_NAME}</span><span>Estimates are a guide only. Confirm quantities, product yields and specifications with your supplier or qualified tradesperson.</span></div></footer>`;
 }
 
 // The calculator itself (form on the left, estimate on the right)
 function workspace(c) {
-  return `<section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Updates automatically</span></div></div>
-<div class="calculator-panel result-panel"><div class="result-topline"><div class="panel-heading"><span class="panel-number">02</span><div><h2>Your estimate</h2><p>Based on the measurements entered.</p></div></div><span class="result-check" aria-hidden="true">✓</span></div><div id="out" class="calculator-results"></div><div id="srStatus" class="sr-only" role="status" aria-live="polite"></div><p class="result-note" id="nt"></p><div class="result-actions"><button type="button" class="button button-result" id="copyResults">Copy results</button><span class="copy-feedback" id="copyFeedback" aria-live="polite"></span></div><div class="estimate-footnote">Estimates are indicative. Confirm product yields and specifications with your supplier.</div></div></section>
+  return `<p class="print-note">Estimate from Aussie Build Calc. Confirm quantities, product yields and specifications with your supplier before you order.</p><section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Updates automatically</span></div></div>
+<div class="calculator-panel result-panel"><div class="result-topline"><div class="panel-heading"><span class="panel-number">02</span><div><h2>Your estimate</h2><p>Based on the measurements entered.</p></div></div><span class="result-check" aria-hidden="true">✓</span></div><div id="out" class="calculator-results"></div><div id="srStatus" class="sr-only" role="status" aria-live="polite"></div><p class="result-note" id="nt"></p><div class="result-actions"><button type="button" class="button button-result" id="copyResults">Copy results</button><button type="button" class="button button-outline button-print" id="printResults">Print or save as PDF</button><span class="copy-feedback" id="copyFeedback" aria-live="polite"></span></div><div class="estimate-footnote">Estimates are indicative. Confirm product yields and specifications with your supplier.</div></div></section>
 <div class="micro-trust"><span>✓ No account required</span><span>✓ Free calculators</span><span>✓ Works on mobile</span></div>`;
 }
 
 function homePage() {
-  const title = 'Free Building & Construction Calculators for Australia | Australia Building Calculators';
+  const title = 'Free Building & Landscaping Calculators Australia | Aussie Build Calc';
   const desc = 'Free Australian building, renovation and landscaping calculators. Estimate concrete, gravel, soil, mulch, paint, tiles, bricks, screed and more using metric units.';
   const schema = [
     { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, description: desc, inLanguage: 'en-AU', ...(abs('/') ? { url: abs('/') } : {}) },
@@ -167,88 +167,156 @@ ${header('', '')}<main id="main">
       <div class="quickcalc-field quickcalc-depth"><label for="homeQuickDepth">Depth <span>(mm, optional)</span></label><input id="homeQuickDepth" type="number" inputmode="decimal" min="0.01" max="1000000" step="any" placeholder="e.g. 100" autocomplete="off"></div>
     </div>
     <div class="quickcalc-results" aria-live="polite" aria-atomic="true">
-      <div><span>Area</span><strong id="homeQuickArea">—</strong></div>
-      <div><span>Volume</span><strong id="homeQuickVolume">—</strong></div>
+      <div><span>Area</span><strong id="homeQuickArea">0 m²</strong></div>
+      <div><span>Volume</span><strong id="homeQuickVolume">0 m³</strong></div>
     </div>
     <p class="quickcalc-message" id="homeQuickMessage" role="status">Enter length and width to calculate area. Add depth to calculate volume.</p>
     <div class="quickcalc-actions"><button type="button" class="quickcalc-example" id="homeQuickExample">Try an example</button><button type="button" class="quickcalc-clear" id="homeQuickClear">Clear</button></div>
   </form>
-  <a class="home-quickcalc-link" href="${slug.sqm}/">Need a different shape? Open the square metre calculator</a>
+  <p class="home-quickcalc-links">Other shapes: <a href="${slug.sqm}/">square metre</a> or <a href="${slug.cubic}/">cubic metre</a> calculator</p>
 </aside>
 </div></section>
 <section class="quick-strip" aria-label="Popular calculators"><div class="quick-inner"><span class="quick-label">Popular tools</span>${popular}</div></section>
-<section class="tools-section" id="tools"><div class="section-heading"><div><div class="section-kicker">Pick your project</div><h2>Find the right calculator</h2><p>Choose a tool below to get a quick, clear material estimate.</p></div></div>
+<section class="tools-section" id="tools"><div class="section-heading"><div><h2>Find the right calculator</h2></div></div>
 <div class="category-filters" role="group" aria-label="Filter calculators by category">${filters}</div>
 <div class="tool-grid" id="toolGrid">${cards}</div><div class="no-results" id="noResults" hidden>No calculators found. Try another search or choose a different category.</div>
 </section>
-<section class="benefits-section" id="about"><div class="benefit-intro"><div class="section-kicker">Why use Australia Building Calculators?</div><h2>Less guesswork. Better planning.</h2><p>Whether it’s a weekend garden project or a bigger renovation, get a clear starting estimate without digging through complicated spreadsheets.</p></div><div class="benefit-list"><div class="benefit"><span aria-hidden="true">✓</span><div><b>Made for Australian metric measurements</b><p>Enter metres, millimetres, square metres and other familiar units.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Results that update instantly</b><p>Adjust your measurements and see the estimate change as you work.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Clear, practical breakdowns</b><p>See volume, area, weight, bags or quantities where the calculator supports them. <a href="how-we-calculate/">See how we calculate</a>.</p></div></div></div></section>
+<section class="benefits-section" id="about"><div class="benefit-intro"><div class="section-kicker">Why use Aussie Build Calc?</div><h2>Less guesswork. Better planning.</h2><p>Whether it’s a weekend garden project or a bigger renovation, get a clear starting estimate without digging through complicated spreadsheets.</p></div><div class="benefit-list"><div class="benefit"><span aria-hidden="true">✓</span><div><b>Made for Australian metric measurements</b><p>Enter metres, millimetres, square metres and other familiar units.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Results that update instantly</b><p>Adjust your measurements and see the estimate change as you work.</p></div></div><div class="benefit"><span aria-hidden="true">✓</span><div><b>Clear, practical breakdowns</b><p>See volume, area, weight, bags or quantities where the calculator supports them. <a href="how-we-calculate/">See how we calculate</a>.</p></div></div></div></section>
 <section class="disclaimer-band"><div class="disclaimer-symbol" aria-hidden="true">i</div><div><strong>A helpful estimate, not a final order</strong><p>Material densities, product coverage and bag yields vary by supplier. Check product information and confirm your final quantities before purchasing.</p></div></section>
 </main>${footer('')}<script src="js/data.js"></script><script src="js/site.js" defer></script></body></html>`;
 }
 
+
+// ---------- Page content from content/*.md (written in the final content document) ----------
+const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*])\*(?!\s)([^*]+?)\*(?!\*)/g, '$1<em>$2</em>');
+const plain = s => String(s).replace(/\*\*/g, '').replace(/(^|\s)\*([^*]+)\*/g, '$1$2');
+function parseBlocks(lines) {
+  const out = []; let i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (!l.trim()) { i++; continue; }
+    if (l.startsWith('### ')) { out.push({ t: 'h3', s: l.slice(4).trim() }); i++; continue; }
+    if (l.trim().startsWith('|')) {
+      const rows = [];
+      while (i < lines.length && lines[i].trim().startsWith('|')) { rows.push(lines[i].trim().replace(/^\||\|$/g, '').split('|').map(x => x.trim())); i++; }
+      out.push({ t: 'table', rows: rows.filter(r => !r.every(c => /^:?-{2,}:?$/.test(c))) }); continue;
+    }
+    if (/^\s*[-*] /.test(l)) {
+      const items = [];
+      while (i < lines.length) {
+        if (/^\s*[-*] /.test(lines[i])) { items.push(lines[i].replace(/^\s*[-*] /, '').trim()); i++; }
+        else if (!lines[i].trim() && i + 1 < lines.length && /^\s*[-*] /.test(lines[i + 1])) i++;
+        else break;
+      }
+      out.push({ t: 'ul', items }); continue;
+    }
+    const para = [];
+    while (i < lines.length && lines[i].trim() && !lines[i].startsWith('### ') && !lines[i].trim().startsWith('|') && !/^\s*[-*] /.test(lines[i])) { para.push(lines[i].trim()); i++; }
+    out.push({ t: 'p', s: para.join(' ') });
+  }
+  return out;
+}
+const blockHtml = b => b.t === 'h3' ? `<h3>${inline(b.s)}</h3>`
+  : b.t === 'p' ? `<p>${inline(b.s)}</p>`
+  : b.t === 'ul' ? `<ul>${b.items.map(x => `<li>${inline(x)}</li>`).join('')}</ul>`
+  : `<div class="table-wrap"><table><thead><tr>${b.rows[0].map(x => `<th>${inline(x)}</th>`).join('')}</tr></thead><tbody>${b.rows.slice(1).map(r => `<tr>${r.map(x => `<td>${inline(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const blockText = b => b.t === 'ul' ? b.items.map(plain).join(' ') : b.t === 'table' ? '' : plain(b.s);
+function loadContent(k) {
+  const f = path.join(OUT, 'content', `${k}.md`);
+  if (!fs.existsSync(f)) return null;
+  const lines = fs.readFileSync(f, 'utf8').split('\n');
+  const title = lines[0].replace(/^#\s+/, '').trim();
+  const mark = lines.findIndex(l => l.includes('[Calculator tool goes here]'));
+  const firstH2 = lines.findIndex(l => l.startsWith('## '));
+  const intro = parseBlocks(lines.slice(1, mark).filter(l => !/^\*[^*]+\*$/.test(l.trim())));
+  const after = parseBlocks(lines.slice(mark + 1, firstH2));
+  const sections = []; let cur = null;
+  lines.slice(firstH2).forEach(l => { if (l.startsWith('## ')) { cur = { h: l.slice(3).trim(), lines: [] }; sections.push(cur); } else cur.lines.push(l); });
+  sections.forEach(s => { s.blocks = parseBlocks(s.lines); });
+  return { title, intro, after, sections };
+}
+
 function calculatorPage(k) {
   const c = C[k], root = '../', pagePath = `/${slug[k]}/`;
+  const doc = loadContent(k);
+  const faqSection = doc && doc.sections.find(s => /^Frequently Asked Questions/i.test(s.h));
+  let faqs = (c.q || []).map(q => ({ q: q[0], aHtml: `<p>${esc(q[1])}</p>`, aText: q[1] }));
+  if (faqSection) {
+    faqs = []; let cur = null;
+    faqSection.blocks.forEach(b => { if (b.t === 'h3') { cur = { q: plain(b.s), parts: [] }; faqs.push(cur); } else if (cur) cur.parts.push(b); });
+    faqs = faqs.map(f => ({ q: f.q, aHtml: f.parts.map(blockHtml).join(''), aText: f.parts.map(blockText).join(' ').trim() }));
+  }
   const pageSchema = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name: c.h, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', inLanguage: 'en-AU', description: c.md, ...(abs(pagePath) ? { url: abs(pagePath) } : {}) },
-    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: c.q.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.aText } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'All calculators', ...(abs('/') ? { item: abs('/') } : {}) },
       { '@type': 'ListItem', position: 2, name: c.nm, ...(abs(pagePath) ? { item: abs(pagePath) } : {}) }
     ] }
   ];
-  const how = `<section class="content-section how-section"><div class="section-kicker">Getting started</div><h2>How to use this calculator</h2><ol class="how-list">${c.how.map((s, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><p>${esc(s)}</p></li>`).join('')}</ol></section>`;
-  const body = `${how}<section class="content-section article-section">${(c.a || []).map(article).join('')}</section>
-<section class="content-section faq-section"><div class="section-kicker">Good to know</div><h2>Common questions</h2><div class="faq-list">${c.q.map(q => `<details class="faq-item"><summary>${esc(q[0])}<span aria-hidden="true">+</span></summary><p>${esc(q[1])}</p></details>`).join('')}</div></section>
-<section class="more-section"><div><div class="section-kicker">Keep planning</div><h2>More useful calculators</h2><p>Other tools that go well with this one.</p></div><div class="more-grid">${related[k].map(x => `<a href="${root}${slug[x]}/"><span aria-hidden="true">${icon[x]}</span><b>${esc(C[x].nm)}</b></a>`).join('')}<a href="${root}#tools" class="more-all"><span aria-hidden="true">＋</span><b>View all tools</b></a></div></section>`;
+  let content;
+  if (doc) {
+    content = (doc.after.length ? `<section class="content-section article-section result-note-section">${doc.after.map(blockHtml).join('')}</section>` : '') +
+      doc.sections.filter(s => s !== faqSection).map(s => `<section class="content-section article-section"><h2>${inline(s.h)}</h2>${s.blocks.map(blockHtml).join('')}</section>`).join('\n');
+  } else {
+    const how = `<section class="content-section how-section"><div class="section-kicker">Getting started</div><h2>How to use this calculator</h2><ol class="how-list">${c.how.map((s, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><p>${esc(s)}</p></li>`).join('')}</ol></section>`;
+    content = `${how}<section class="content-section article-section">${(c.a || []).map(article).join('')}</section>`;
+  }
+  const faqHtml = `<section class="content-section faq-section"><h2>${doc && faqSection ? inline(faqSection.h) : 'Common questions'}</h2><div class="faq-list">${faqs.map(f => `<details class="faq-item"><summary>${esc(f.q)}<span aria-hidden="true">+</span></summary>${f.aHtml}</details>`).join('')}</div></section>`;
+  const more = `<section class="more-section"><div><div class="section-kicker">Keep planning</div><h2>More useful calculators</h2><p>Other tools that go well with this one.</p></div><div class="more-grid">${related[k].map(x => `<a href="${root}${slug[x]}/"><span aria-hidden="true">${icon[x]}</span><b>${esc(C[x].nm)}</b></a>`).join('')}<a href="${root}#tools" class="more-all"><span aria-hidden="true">＋</span><b>View all tools</b></a></div></section>`;
+  const h1 = doc ? doc.title : c.h;
+  const lead = doc ? doc.intro.map(b => b.s || '').join(' ') : c.ld;
   return `<!doctype html><html lang="en-AU">${head({ title: c.t, desc: c.md, canonical: abs(pagePath), root, schema: pageSchema })}<body class="calculator-page" data-calc="${k}">
 ${header(root, k)}<main id="main" class="page-main">
 <div class="breadcrumb"><a href="${root}">All calculators</a><span aria-hidden="true">/</span><span>${esc(c.nm)}</span></div>
-<section class="calculator-hero"><div class="eyebrow eyebrow-dark">${esc(category[k])} calculator</div><h1>${esc(c.h)}</h1><p>${esc(c.ld)}</p><div class="hero-pills"><span><i>✓</i> Free to use</span><span><i>✓</i> Instant results</span><span><i>✓</i> Metric units</span></div></section>
+<section class="calculator-hero"><div class="eyebrow eyebrow-dark">${esc(category[k])} calculator</div><h1>${esc(h1)}</h1><p>${inline(lead)}</p><div class="hero-pills"><span><i>✓</i> Free to use</span><span><i>✓</i> Instant results</span><span><i>✓</i> Metric units</span></div></section>
 ${workspace(c)}
-${body}
+${content}
+${faqHtml}
+${more}
 </main>${footer(root)}<script src="${root}js/data.js"></script><script src="${root}js/app.js"></script></body></html>`;
 }
 
 // ---------- Trust pages ----------
 const assumptions = [
   ['Calculator', 'What it uses'],
-  ['Concrete', 'The area is section 1 plus an optional second rectangle, multiplied by thickness, then adjusted for your waste allowance. A 20 kg bag is about 0.01 m³ and a 40 kg bag about 0.02 m³. Concrete weighs about 2.4 tonnes per m³.'],
-  ['Gravel', 'The two optional rectangular areas are combined before multiplying by depth and adding a compaction allowance (15% by default). Weight per m³: pebbles 1.5 t, crushed rock or blue metal 1.6 t, crusher dust 1.7 t, road base 1.9 t, sand 1.6 t.'],
-  ['Soil', 'The two optional rectangular garden areas are combined before multiplying by depth and adding a settling allowance (10% by default). Weight per m³: topsoil 1.3 t, garden mix 1.1 t, compost 0.8 t. Bags are counted as 30 litres.'],
-  ['Mulch', 'The two optional rectangular garden-bed areas are combined before multiplying by depth and adding an extra allowance (10% by default). Bags are counted as 30 litres.'],
-  ['Paint', 'Paintable area is wall area minus doors and windows, plus any ceiling. Doors default to 1.6 m² and windows to 1.5 m², and you can change both. Coverage defaults to 12 m² per litre. Tin sizes used: 15, 10, 4, 2 and 1 litre.'],
-  ['Tile', 'The two optional rectangular floor or wall areas are combined. Each tile is measured with its grout gap included. The result is rounded up and includes your cutting allowance (10% by default).'],
-  ['Brick', 'A standard Australian brick is 230 × 110 × 76 mm and a besser block is 390 × 190 mm, both with a 10 mm joint. That gives about 48.45 bricks or 12.5 blocks per m². A brick course is 86 mm high and a block course is 200 mm.'],
-  ['Screed', 'Dry materials take up about 30% more space than the finished screed. Cement is counted in 20 kg bags at 1,440 kg per m³, and sand at 1.6 tonnes per m³.'],
-  ['Square metre', 'Rectangle area is length × width; triangle area is base × perpendicular height ÷ 2; circle area is π × radius². A rectangle can include a second non-overlapping section. One square metre is 10.764 square feet.'],
-  ['Cubic metre', 'Rectangular volume is length × width × height. Cylinder volume is π × radius² × height, using half the entered diameter as the radius. One cubic metre is 1,000 litres.'],
-  ['Lineal metre', 'Lineal metres equal the area divided by the board or roll width, plus your extra allowance.']
+  ['Concrete', 'Volume depends on the structure type (slab, footing, post hole, column, wall or steps), plus your waste allowance. A 20 kg bag is assumed to make about 10 litres, a 30 kg bag 15 litres and a 40 kg bag 20 litres, and you can enter your own bag yield. Concrete density defaults to 2.4 tonnes per m³ and can be edited. Ready mix is rounded up to 0.2 m³ steps.'],
+  ['Gravel', 'Volume plus a compaction allowance (15% by default). Typical weight per m³: pebbles 1.5 t, crushed rock or blue metal 1.6 t, crusher dust 1.7 t, road base 1.9 t, sand 1.6 t. The density used is shown and can be edited. Bags are calculated from the weight and the bag size you choose.'],
+  ['Soil', 'Volume plus a settling allowance (10% by default). Typical weight per m³: topsoil 1.3 t, garden mix 1.1 t, lawn underlay 1.4 t, vegetable garden mix 1.0 t, compost 0.8 t, sandy soil 1.5 t, fill soil 1.6 t. Densities can be edited. The order quantity is rounded up to 0.5 m³ steps.'],
+  ['Mulch', 'Volume plus an extra allowance (10% by default). Bags can be 25, 30, 40 or 50 litres or a custom size. Load capacities are typical values for a ute tray and for small, medium and large trailers, and you can edit them.'],
+  ['Paint', 'Wall area is each room perimeter times wall height, minus doors and windows. Doors default to 1.6 m² and windows to 1.5 m². Coverage defaults to 12 m² per litre for interior paint and 10 m² per litre for exterior paint, as a general assumption only. Rough surfaces add 10% and porous or unpainted surfaces add 20%. Tin sizes used: 15, 10, 4, 2 and 1 litre.'],
+  ['Tile', 'Each tile is measured with its grout gap included. Allowance defaults to 10% for straight lay or brick bond, 15% for diagonal and 30% for herringbone, and can be edited. Adhesive coverage and grout use are optional estimates, and grout is assumed to weigh 1.6 kg per litre.'],
+  ['Brick', 'A standard Australian brick is 230 × 110 × 76 mm, a double height brick is 230 × 110 × 162 mm and a besser block is 390 × 190 mm. The mortar joint defaults to 10 mm, which gives about 48.45 standard bricks per m². Custom sizes and joint thickness can be entered. Double skin walls use twice the bricks.'],
+  ['Screed', 'Dry materials take up about 30% more space than the finished screed. Cement is counted in 20 kg or 25 kg bags at 1,440 kg per m³, and sand at 1.6 tonnes per m³. Liquid screed and bagged ready mixed screed are calculated by volume or by bag yield.'],
+  ['Square metre', 'Area is length × width, or the matching formula for a triangle or circle. One square metre is 10.764 square feet.'],
+  ['Cubic metre', 'Volume is length × width × height, or the matching formula for a cylinder. One cubic metre is 1,000 litres.'],
+  ['Lineal metre', 'Lineal metres equal the area divided by the cover width, plus your extra allowance. Timber volume conversion divides the volume by the width and the thickness. Board and roll widths are common sizes and can be edited.']
 ];
 
 const infoPages = [
   {
     slug: 'how-we-calculate', title: `How We Calculate | ${SITE_NAME}`,
-    desc: 'The formulas and assumptions behind every Australia Building Calculators calculator, including bag sizes, material weights and coverage rates.',
+    desc: 'The formulas and assumptions behind every Aussie Build Calc calculator, including bag sizes, material weights and coverage rates.',
     h1: 'How we calculate', lead: 'Every calculator uses simple, visible maths. Here are the formulas and typical values behind each one.',
     body: [
-      ['The basic approach', 'Most calculators multiply length, width and depth to find a volume in cubic metres. Some then convert that volume into tonnes, bags or boxes using a typical material weight or yield.\nAll measurements are metric. Results are rounded up where you would need to buy whole items, such as bags, tiles or tins.'],
+      ['The basic approach', 'Most calculators multiply length, width and depth to find a volume in cubic metres. Some then convert that volume into tonnes, bags or boxes using a typical material weight or yield.\nAll measurements are metric. Results are rounded up where you would need to buy whole items, such as bags, tiles or tins.\nWeights, bag yields, coverage rates and allowances are typical starting values. Where the calculator shows one in a box, you can change it to match your supplier specification.'],
       ['Assumptions used', assumptions],
       ['Why your numbers may differ', 'Bag yields, material weights, paint coverage and tile sizes change between brands and suppliers. Wet or compacted materials weigh more. Uneven ground and cutting waste also use extra material.\nAlways check the product label and confirm quantities with your supplier before you order. These calculators are a planning guide only and are not engineering or trade advice.']
     ]
   },
   {
     slug: 'about', title: `About ${SITE_NAME}`,
-    desc: 'Australia Building Calculators offers free, simple building, renovation and landscaping calculators in metric units for Australian projects.',
+    desc: 'Aussie Build Calc offers free, simple building, renovation and landscaping calculators in metric units for Australian projects.',
     h1: `About ${SITE_NAME}`, lead: 'Free, simple calculators for building, renovating and landscaping projects in Australia.',
     body: [
-      ['What this site is', 'Australia Building Calculators helps you work out how much material a project needs before you buy. It covers concrete, gravel, soil, mulch, paint, tiles, bricks, screed and common area and volume conversions.\nEverything uses metric units and terms that Australian suppliers use, such as road base, crusher dust and blue metal.'],
+      ['What this site is', 'Aussie Build Calc helps you work out how much material a project needs before you buy. It covers concrete, gravel, soil, mulch, paint, tiles, bricks, screed and common area and volume conversions.\nEverything uses metric units and terms that Australian suppliers use, such as road base, crusher dust and blue metal.'],
       ['How the calculators work', 'You enter your measurements and the result updates straight away. Nothing needs to be installed and no account is needed. You can read the formulas and assumptions on the how we calculate page.'],
       ['A guide, not a final order', 'Results are estimates. Product yields, material weights and site conditions vary, so always confirm quantities with your supplier or a qualified tradesperson before you buy.']
     ]
   },
   {
     slug: 'privacy', title: `Privacy | ${SITE_NAME}`,
-    desc: 'How Australia Building Calculators handles your information. The calculators run in your browser and do not need an account.',
+    desc: 'How Aussie Build Calc handles your information. The calculators run in your browser and do not need an account.',
     h1: 'Privacy', lead: 'A short, plain summary of how this website handles information. Last updated 17 November 2026.',
     body: [
       ['Your calculator entries', 'The calculators run in your web browser. The measurements you type are used to show your result on your own screen. They are not sent to us and we do not store them.'],
@@ -262,7 +330,7 @@ const infoPages = [
 if (CONTACT_EMAIL) {
   infoPages.push({
     slug: 'contact', title: `Contact | ${SITE_NAME}`,
-    desc: 'Contact Australia Building Calculators with questions, corrections or suggestions for new calculators.',
+    desc: 'Contact Aussie Build Calc with questions, corrections or suggestions for new calculators.',
     h1: 'Contact', lead: 'Questions, corrections or ideas for a new calculator are welcome.',
     body: [['Get in touch', `Email us at ${CONTACT_EMAIL}. If you think a number or formula is wrong, tell us which calculator and what values you entered so we can check it.`]]
   });
