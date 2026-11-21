@@ -268,5 +268,38 @@ const soilExample = make('soil', function (v) {
 });
 check('soil worked example matches topsoil density and 0.5 m³ order rounding', row('soil', soilExample, 'Estimated weight') === '3.58 t' && row('soil', soilExample, 'Suggested order quantity') === '3 m³');
 
+/* Pre-launch content, accessibility wording and SEO configuration */
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'site.config.json'), 'utf8'));
+const appSource = fs.readFileSync(path.join(__dirname, 'js/app.js'), 'utf8');
+const aboutHtml = fs.readFileSync(path.join(__dirname, 'about/index.html'), 'utf8');
+const disclaimerHtml = fs.readFileSync(path.join(__dirname, 'disclaimer/index.html'), 'utf8');
+const generatedHtml = [];
+function collectHtml(dir) {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach(function (entry) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) collectHtml(full);
+    else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== '404.html') generatedHtml.push(fs.readFileSync(full, 'utf8'));
+  });
+}
+collectHtml(__dirname);
+check('public site URL matches the current GitHub Pages address', config.siteUrl === 'https://australia-building-calculators.github.io');
+check('indexing switch remains off during pre-launch testing', config.allowIndexing === false);
+check('canonical URL is generated on every indexable content page', generatedHtml.length === 16 && generatedHtml.every(function (html) { return /<link rel="canonical" href="https:\/\/australia-building-calculators\.github\.io\//.test(html); }));
+check('all content pages remain noindex until launch is approved', generatedHtml.every(function (html) { return /<meta name="robots" content="noindex,follow">/.test(html); }));
+check('robots.txt advertises the generated sitemap', /Sitemap: https:\/\/australia-building-calculators\.github\.io\/sitemap\.xml/.test(fs.readFileSync(path.join(__dirname, 'robots.txt'), 'utf8')));
+check('sitemap contains 16 unique canonical page URLs', (fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length === 16 && new Set(Array.from(fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g), function (m) { return m[1]; })).size === 16);
+check('About page describes site creator and purpose without inventing credentials', /independently developed website maintained by its site owner/i.test(aboutHtml) && /purpose is to make common building, renovation and landscaping quantity estimates easier/i.test(aboutHtml) && !/qualified engineer|licensed builder|certified tradie/i.test(aboutHtml));
+check('standalone disclaimer page is generated and linked in the site builder', fs.existsSync(path.join(__dirname, 'disclaimer/index.html')) && /Disclaimer/.test(buildSource));
+check('calculator help text no longer tells visitors to press Calculate', !/press\s+calculate/i.test(generatedHtml.join('\n') + fs.readFileSync(path.join(__dirname, 'content/screed.md'), 'utf8')));
+check('calculator live-update wording matches the event-driven interface', buildSource.includes('Results update as you type') && appSource.includes("form.addEventListener('input', render)"));
+check('calculator validation rejects negative values, required zero values and excessive values', /value < 0/.test(appSource) && /required && value === 0/.test(appSource) && /value > MAX/.test(appSource));
+check('optional zero inputs remain supported by the validation logic', /raw === '' \? 0 : Number\(raw\)/.test(appSource) && /required && value === 0/.test(appSource));
+check('each generated page has a unique SEO title and description', (function () {
+  const titles = generatedHtml.map(function (html) { return (html.match(/<title>(.*?)<\/title>/) || [])[1]; });
+  const descriptions = generatedHtml.map(function (html) { return (html.match(/<meta name="description" content="(.*?)">/) || [])[1]; });
+  return titles.every(Boolean) && descriptions.every(Boolean) && new Set(titles).size === titles.length && new Set(descriptions).size === descriptions.length;
+})());
+check('public contact address is deliberately left unconfigured rather than exposing a private email', !config.contactEmail && !fs.existsSync(path.join(__dirname, 'contact/index.html')) && /contactEmail/.test(buildSource));
+
 console.log('\n' + results.filter(Boolean).length + '/' + results.length + ' checks passed.');
 if (failed) process.exit(1);

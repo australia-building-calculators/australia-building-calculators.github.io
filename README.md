@@ -8,7 +8,8 @@ A static Australian building, renovation and landscaping calculator website. It 
 - A directory-first homepage with search, category filters, popular tools and a live quick area-and-volume estimator.
 - Shared calculator forms with live results, input validation, accessible error feedback, reset and copy actions.
 - Optional second rectangular areas on concrete, gravel, soil, mulch and tile calculators; rectangle/triangle/circle area modes and rectangular/cylindrical volume modes.
-- About, Privacy and How We Calculate pages, plus a custom 404 page.
+- About, Privacy, Disclaimer and How We Calculate pages, plus a custom 404 page.
+- A Contact page is generated when a public `contactEmail` is configured.
 
 ## Required before production launch
 
@@ -65,7 +66,7 @@ node test-calculators.js
 node build.js
 ```
 
-The test script checks all 11 default calculator outputs, multiple-area calculations, shape calculations, product option changes, rounding behaviours, validation safeguards and homepage quick-calculator elements.
+The test script checks all 11 default calculator outputs, multiple-area calculations, shape calculations, product option changes, rounding behaviours, validation safeguards, site identity and SEO build settings.
 
 ## Changing the site
 

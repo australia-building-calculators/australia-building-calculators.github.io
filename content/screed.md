@@ -20,7 +20,7 @@ Enter the thickness in millimetres. The right thickness depends on the type of s
 
 ### Calculate the Floor Area and Screed Volume
 
-Press calculate and the tool multiplies length, width and thickness to give the volume of screed in cubic metres. It also shows the floor area in square metres.
+As you enter or change valid measurements, the result updates automatically. The tool multiplies length, width and thickness to give the volume of screed in cubic metres. It also shows the floor area in square metres.
 
 ### Estimate the Total Screed Material Required
 

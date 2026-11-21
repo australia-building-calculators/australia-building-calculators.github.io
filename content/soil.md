@@ -20,7 +20,7 @@ Enter how deep the soil needs to be. Depth is usually quoted in millimetres, and
 
 ### Calculate the Soil Volume in Cubic Metres
 
-Press calculate and the tool multiplies length, width and depth to give the volume in cubic metres. It also gives an approximate weight, which is useful when you are arranging delivery or deciding how much you can move by trailer.
+As you enter or change valid measurements, the result updates automatically. The tool multiplies length, width and depth to give the volume in cubic metres. It also gives an approximate weight, which is useful when you are arranging delivery or deciding how much you can move by trailer.
 
 ### Calculate Soil Requirements for Multiple Garden Beds
 

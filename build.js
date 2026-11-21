@@ -24,6 +24,7 @@ if (rawSiteUrl) {
   }
   SITE_URL = (parsedSiteUrl.origin + parsedSiteUrl.pathname).replace(/\/+$/, '');
 }
+const ALLOW_INDEXING = Boolean(SITE_URL && config.allowIndexing === true);
 const CONTACT_EMAIL = String(config.contactEmail || '').trim();
 if (CONTACT_EMAIL && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(CONTACT_EMAIL)) {
   throw new Error('contactEmail does not look like a valid email address. Use an address you control, or leave it blank.');
@@ -95,7 +96,7 @@ function head({ title, desc, canonical, root, schema }) {
 <meta name="theme-color" content="#143d32">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
-<meta name="robots" content="${SITE_URL ? 'index,follow,max-image-preview:large' : 'noindex,follow'}">
+<meta name="robots" content="${ALLOW_INDEXING ? 'index,follow,max-image-preview:large' : 'noindex,follow'}">
 ${canonical ? `<link rel="canonical" href="${esc(canonical)}">` : ''}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_AU">
@@ -126,14 +127,14 @@ ${nav(root, current)}
 }
 
 function footer(root) {
-  const links = [['All calculators', root], ['How we calculate', `${root}how-we-calculate/`], ['About', `${root}about/`], ['Privacy', `${root}privacy/`]];
+  const links = [['All calculators', root], ['How we calculate', `${root}how-we-calculate/`], ['About', `${root}about/`], ['Privacy', `${root}privacy/`], ['Disclaimer', `${root}disclaimer/`]];
   if (CONTACT_EMAIL) links.push(['Contact', `${root}contact/`]);
   return `<footer class="site-footer"><div class="footer-inner"><div><a class="footer-brand" href="${root}">${SITE_NAME}</a><p>Practical calculators for building, landscaping and home improvement projects across Australia.</p></div><div class="footer-links">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join('')}</div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} ${SITE_NAME}</span><span>Estimates are a guide only. Confirm quantities, product yields and specifications with your supplier or qualified tradesperson.</span></div></footer>`;
 }
 
 // The calculator itself (form on the left, estimate on the right)
 function workspace(c) {
-  return `<p class="print-note">Estimate from Australia Building Calculators. Confirm quantities, product yields and specifications with your supplier before you order.</p><section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Updates automatically</span></div></div>
+  return `<p class="print-note">Estimate from Australia Building Calculators. Confirm quantities, product yields and specifications with your supplier before you order.</p><section class="calculator-workspace" aria-label="${esc(c.nm)} calculator"><div class="calculator-panel input-panel"><div class="panel-heading"><span class="panel-number">01</span><div><h2>Your measurements</h2><p>Enter your project details below.</p></div></div><div id="in" class="calculator-fields"></div><div id="feedback" class="form-feedback" role="status" aria-live="polite"></div><div class="form-actions"><button type="button" class="button button-outline" id="resetCalc">↺ <span>Reset values</span></button><span class="live-hint"><i></i> Results update as you type</span></div></div>
 <div class="calculator-panel result-panel"><div class="result-topline"><div class="panel-heading"><span class="panel-number">02</span><div><h2>Your estimate</h2><p>Based on the measurements entered.</p></div></div><span class="result-check" aria-hidden="true">✓</span></div><div id="out" class="calculator-results"></div><div id="srStatus" class="sr-only" role="status" aria-live="polite"></div><p class="result-note" id="nt"></p><div class="result-actions"><button type="button" class="button button-result" id="copyResults">Copy results</button><button type="button" class="button button-outline button-print" id="printResults">Print or save as PDF</button><span class="copy-feedback" id="copyFeedback" aria-live="polite"></span></div><div class="estimate-footnote">Estimates are indicative. Confirm product yields and specifications with your supplier.</div></div></section>
 <div class="micro-trust"><span>✓ No account required</span><span>✓ Free calculators</span><span>✓ Works on mobile</span></div>`;
 }
@@ -310,20 +311,33 @@ const infoPages = [
     h1: `About ${SITE_NAME}`, lead: 'Free, simple calculators for building, renovating and landscaping projects in Australia.',
     body: [
       ['What this site is', 'Australia Building Calculators helps you estimate how much material a project may need before you buy. It covers concrete, gravel, soil, mulch, paint, tiles, bricks, screed and common area and volume conversions.\nEverything uses metric units and terms that Australian suppliers use, such as road base, crusher dust and blue metal.'],
-      ['How the calculators work', 'You enter your measurements and the result updates straight away. Nothing needs to be installed and no account is needed. You can read the formulas and assumptions on the how we calculate page.'],
+      ['Who creates and maintains this website', 'Australia Building Calculators is an independently developed website maintained by its site owner. It is a practical online project rather than a building supplier, trade business or government service. The site does not claim professional trade, engineering or construction qualifications.'],
+      ['Why the site was created', 'The purpose is to make common building, renovation and landscaping quantity estimates easier to work out. The calculators are free to use, use Australian metric measurements and show the main assumptions behind their estimates so visitors can check them against their own products and project conditions.'],
+      ['How the calculators work', 'Enter your measurements and the results recalculate as you type or change an option. Nothing needs to be installed and no account is needed. You can read the formulas and assumptions on the How We Calculate page.'],
       ['A guide, not a final order', 'Results are estimates. Product yields, material weights and site conditions vary, so always confirm quantities with your supplier or a qualified tradesperson before you buy.']
     ]
   },
   {
     slug: 'privacy', title: `Privacy | ${SITE_NAME}`,
     desc: 'How Australia Building Calculators handles your information. The calculators run in your browser and do not need an account.',
-    h1: 'Privacy', lead: 'A short, plain summary of how this website handles information. Last updated 17 November 2026.',
+    h1: 'Privacy', lead: 'A short, plain summary of how this website handles information. Last updated 21 November 2026.',
     body: [
       ['Your calculator entries', 'The calculators run in your web browser. The measurements you type are used to show your result on your own screen. They are not sent to us and we do not store them.'],
       ['Accounts and personal information', 'You do not need an account to use this site, and the calculators do not ask for personal details.'],
-      ['Third party services', 'Pages load fonts from Google Fonts, so your browser contacts Google when a page opens. The website host may also keep standard server logs, such as IP addresses and the pages requested, to keep the site running and secure.'],
+      ['Third party services', 'Pages load fonts from Google Fonts, so your browser contacts Google when a page opens. The website host may also keep standard server logs, such as IP addresses and the pages requested, to keep the site running and secure. If you contact the site by email, your email provider processes the message you choose to send.'],
       ['Advertising, analytics and cookies', 'This version of the website does not include third-party advertising scripts or analytics tools. If advertising or analytics are introduced, this notice will be updated before those services are enabled to identify the providers, explain the data and cookies they may use, and describe any consent choices available to visitors.'],
       ['Changes', 'This policy may be updated when the website or its third-party services change. The date at the top of this page will be revised when material changes are made.']
+    ]
+  },
+  {
+    slug: 'disclaimer', title: `Disclaimer | ${SITE_NAME}`,
+    desc: 'Important information about the estimates, assumptions and limitations of Australia Building Calculators.',
+    h1: 'Disclaimer', lead: 'Use these calculators as planning guides, then confirm the final quantities and specifications for your project.',
+    body: [
+      ['Estimates, not guarantees', 'The results are indicative estimates based on the measurements and assumptions entered. They are not a quote, purchase order, supplier guarantee or promise that a particular quantity will be sufficient.'],
+      ['Check measurements and product details', 'You are responsible for checking your measurements, units, selected options and the result before ordering materials. Actual coverage, density, bag yield, dimensions, waste and delivery increments vary by product, supplier and site conditions. Check current product labels and supplier specifications.'],
+      ['No professional or engineering advice', 'The calculators do not assess ground conditions, structural design, load capacity, drainage, building-code compliance, waterproofing, fire safety or site safety. Do not use an estimate as a substitute for advice from a suitably qualified building professional, engineer or tradesperson.'],
+      ['Limitation of use', 'Use the website and its results at your own discretion. To the extent permitted by law, Australia Building Calculators is not responsible for losses arising from relying on an estimate without independently checking it. Nothing on this page is intended to exclude rights that cannot legally be excluded.']
     ]
   }
 ];
@@ -332,7 +346,8 @@ if (CONTACT_EMAIL) {
     slug: 'contact', title: `Contact | ${SITE_NAME}`,
     desc: 'Contact Australia Building Calculators with questions, corrections or suggestions for new calculators.',
     h1: 'Contact', lead: 'Questions, corrections or ideas for a new calculator are welcome.',
-    body: [['Get in touch', `Email us at ${CONTACT_EMAIL}. If you think a number or formula is wrong, tell us which calculator and what values you entered so we can check it.`]]
+    body: [['Get in touch', `Email us at ${CONTACT_EMAIL}. For a calculation correction, include the calculator name, the measurements and options you entered, and the result you expected. Do not send passwords, payment details or other sensitive information.`]],
+    contactEmail: CONTACT_EMAIL
   });
 }
 
@@ -342,7 +357,7 @@ function infoPage(s) {
 ${header(root, 'none')}<main id="main" class="page-main">
 <div class="breadcrumb"><a href="${root}">All calculators</a><span aria-hidden="true">/</span><span>${esc(s.h1)}</span></div>
 <section class="calculator-hero"><h1>${esc(s.h1)}</h1><p>${esc(s.lead)}</p></section>
-<section class="content-section article-section">${s.body.map(article).join('')}</section>
+<section class="content-section article-section">${s.body.map(article).join('')}${s.contactEmail ? `<p><a href="mailto:${esc(s.contactEmail)}">${esc(s.contactEmail)}</a></p>` : ''}</section>
 </main>${footer(root)}</body></html>`;
 }
 
@@ -374,6 +389,7 @@ if (SITE_URL) {
 fs.writeFileSync(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n${SITE_URL ? `Sitemap: ${SITE_URL}/sitemap.xml\n` : '# Configure siteUrl and rebuild to publish a sitemap.\n'}`);
 const homeHref = SITE_URL ? `${SITE_URL}/` : '/';
 fs.writeFileSync(path.join(OUT, '404.html'), `<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><meta name="theme-color" content="#143d32"><title>Page not found | ${SITE_NAME}</title><style>*{box-sizing:border-box}body{margin:0;padding:24px;min-height:100vh;display:grid;place-items:center;background:#f5f7f3;color:#172923;font:16px/1.6 system-ui,sans-serif}main{width:min(560px,100%);padding:42px 32px;border:1px solid #e2e9e3;border-radius:22px;background:#fff;text-align:center;box-shadow:0 18px 50px rgba(21,55,43,.08)}.code{color:#1f765c;font-size:64px;font-weight:800;line-height:1}h1{margin:16px 0 8px;font-size:27px}p{color:#718078}.button{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:10px;background:#143d32;color:white;text-decoration:none;font-weight:700}</style></head><body><main><div class="code">404</div><h1>That page could not be found.</h1><p>The link may be old or the address may have a typo.</p><a class="button" href="${homeHref}">Back to all calculators</a></main></body></html>\n`);
-if (!SITE_URL) console.log('SEO setup is incomplete: pages are marked noindex and no sitemap is published. Set siteUrl in site.config.json (or SITE_URL in the build environment) and rebuild before launch.');
-if (!CONTACT_EMAIL) console.log('contactEmail is empty: the optional Contact page is not generated. Add an address you control to site.config.json and rebuild.');
+if (!SITE_URL) console.log('SEO setup is incomplete: canonical URLs and sitemap are not generated. Set siteUrl in site.config.json and rebuild before launch.');
+if (SITE_URL && !ALLOW_INDEXING) console.log('Indexing remains disabled: pages have noindex, while canonical URLs and sitemap are generated. Set allowIndexing to true only when the site is ready for search indexing.');
+if (!CONTACT_EMAIL) console.log('contactEmail is empty: the Contact page is not generated. Add a public contact address you control to site.config.json before launch.');
 console.log(`Built the home page, ${keys.length} calculator pages and ${infoPages.length} information pages.`);

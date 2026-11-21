@@ -24,7 +24,7 @@ Mortar joints are usually 10mm thick. The calculator adds the joint to both the 
 
 ### Calculate the Total Number of Bricks Required
 
-Press calculate and the tool divides the wall area by the area of one brick face, including the mortar joint. The result is the number of bricks needed to build the wall, before any wastage.
+As you enter or change valid measurements, the result updates automatically. The tool divides the wall area by the area of one brick face, including the mortar joint. The result is the number of bricks needed to build the wall, before any wastage.
 
 ### Allow for Brick Wastage and Breakages
 

@@ -24,7 +24,7 @@ For square footings, circular footings or post holes, and circular columns, ente
 
 ### Calculate the Required Concrete Volume
 
-Press calculate and the tool gives the total volume. For a rectangular slab, it multiplies length by width by thickness. For round items, it uses the area of a circle multiplied by depth.
+As you enter or change valid measurements, the result updates automatically. The tool gives the total volume. For a rectangular slab, it multiplies length by width by thickness. For round items, it uses the area of a circle multiplied by depth.
 
 ### Convert the Result into Cubic Metres
 

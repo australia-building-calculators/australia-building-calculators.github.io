@@ -24,7 +24,7 @@ Grout joints are typically 2 to 5mm wide. Entering the grout width gives you a m
 
 ### Calculate the Total Number of Tiles Required
 
-Press calculate and the tool subtracts the opening area from the combined measured area. It divides the net area by the tile module (tile width plus grout gap, multiplied by tile length plus grout gap), applies the selected wastage allowance and rounds up to whole tiles. Individual area rows are estimates before the overall openings deduction.
+As you enter or change valid measurements, the result updates automatically. The tool subtracts the opening area from the combined measured area. It divides the net area by the tile module (tile width plus grout gap, multiplied by tile length plus grout gap), applies the selected wastage allowance and rounds up to whole tiles. Individual area rows are estimates before the overall openings deduction.
 
 ### Estimate the Number of Tile Boxes to Purchase
 

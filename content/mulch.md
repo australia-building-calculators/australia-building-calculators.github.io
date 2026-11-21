@@ -20,7 +20,7 @@ Enter the depth in millimetres. For most garden beds, 50 to 75mm is a good depth
 
 ### Calculate the Required Mulch Volume
 
-Press calculate and the tool multiplies length, width and depth to give the volume in cubic metres. This is the amount you need to buy, and it is how bulk mulch is sold.
+As you enter or change valid measurements, the result updates automatically. The tool multiplies length, width and depth to give the volume in cubic metres. This is the amount you need to buy, and it is how bulk mulch is sold.
 
 ### Estimate the Number of Mulch Bags Needed
 

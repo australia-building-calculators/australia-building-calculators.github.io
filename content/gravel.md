@@ -20,7 +20,7 @@ Next, enter how deep the gravel layer needs to be. Depth is usually measured in 
 
 ### Calculate the Total Gravel Volume and Quantity
 
-Press calculate and the tool multiplies length, width and depth to give the volume in cubic metres. It also shows an estimated weight in tonnes, because most suppliers sell gravel by weight or by the cubic metre.
+As you enter or change valid measurements, the result updates automatically. The tool multiplies length, width and depth to give the volume in cubic metres. It also shows an estimated weight in tonnes, because most suppliers sell gravel by weight or by the cubic metre.
 
 ### Estimate How Much Gravel to Order
 
