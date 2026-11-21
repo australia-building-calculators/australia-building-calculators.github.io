@@ -283,9 +283,9 @@ function collectHtml(dir) {
 }
 collectHtml(__dirname);
 check('public site URL matches the current GitHub Pages address', config.siteUrl === 'https://australia-building-calculators.github.io');
-check('indexing switch remains off during pre-launch testing', config.allowIndexing === false);
+check('indexing switch is enabled for public launch', config.allowIndexing === true);
 check('canonical URL is generated on every indexable content page', generatedHtml.length === 16 && generatedHtml.every(function (html) { return /<link rel="canonical" href="https:\/\/australia-building-calculators\.github\.io\//.test(html); }));
-check('all content pages remain noindex until launch is approved', generatedHtml.every(function (html) { return /<meta name="robots" content="noindex,follow">/.test(html); }));
+check('all content pages allow search indexing after launch approval', generatedHtml.every(function (html) { return /<meta name="robots" content="index,follow,max-image-preview:large">/.test(html); }));
 check('robots.txt advertises the generated sitemap', /Sitemap: https:\/\/australia-building-calculators\.github\.io\/sitemap\.xml/.test(fs.readFileSync(path.join(__dirname, 'robots.txt'), 'utf8')));
 check('sitemap contains 16 unique canonical page URLs', (fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8').match(/<loc>/g) || []).length === 16 && new Set(Array.from(fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g), function (m) { return m[1]; })).size === 16);
 check('About page describes site creator and purpose without inventing credentials', /independently developed website maintained by its site owner/i.test(aboutHtml) && /purpose is to make common building, renovation and landscaping quantity estimates easier/i.test(aboutHtml) && !/qualified engineer|licensed builder|certified tradie/i.test(aboutHtml));

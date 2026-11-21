@@ -1,5 +1,5 @@
 {
   "siteUrl": "https://australia-building-calculators.github.io",
-  "allowIndexing": false,
+  "allowIndexing": true,
   "contactEmail": ""
 }

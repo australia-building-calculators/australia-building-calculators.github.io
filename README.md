@@ -20,7 +20,7 @@ A static Australian building, renovation and landscaping calculator website. It 
 3. Optionally set `contactEmail` to an address you control. This generates a Contact page and adds it to the footer. Leave it blank if you do not want to publish an email address.
 4. Run `node build.js` from this folder.
 
-**Important:** while `siteUrl` is blank, the build intentionally marks pages `noindex`, does not generate canonical URLs, and removes `sitemap.xml`. This prevents Google from indexing a release that has not yet been configured with its real public URL. The build prints a reminder. Set the correct URL and rebuild before launch.
+**Important:** the public site URL is configured in `site.config.json` and `allowIndexing` is set to `true` for launch. Generated content pages use `index,follow` and the sitemap is published. Set `allowIndexing` to `false` if you need to temporarily prevent search indexing.
 
 You can also set the Cloudflare Pages build environment variable `SITE_URL` to your public HTTPS URL. It overrides `siteUrl` in the JSON configuration. This is useful when you prefer to keep the deployment URL in Cloudflare settings.
 
